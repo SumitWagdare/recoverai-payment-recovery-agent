@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RecoverAI — Explainable AI agent for detecting failed payments and executing safe revenue-recovery workflows." />
+  <title>RecoverAI — Payment Recovery Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- ── Header ──────────────────────────────────────────────────── -->
+    <header class="header" id="app-header">
+      <div class="header-left">
+        <div class="logo">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">Recover<span class="logo-accent">AI</span></span>
+        </div>
+        <span class="header-subtitle">Payment Recovery Agent</span>
+      </div>
+      <div class="header-right">
+        <span class="safety-badge" id="safety-badge">
+          <span class="pulse-dot"></span>
+          SYNTHETIC DATA ONLY
+        </span>
+      </div>
+    </header>
+
+    <!-- ── Navigation Tabs ─────────────────────────────────────────── -->
+    <nav class="tabs" id="main-tabs">
+      <button class="tab active" data-tab="dashboard" id="tab-dashboard">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+      </button>
+      <button class="tab" data-tab="payments" id="tab-payments">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Payments
+      </button>
+      <button class="tab" data-tab="audit" id="tab-audit">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Audit Log
+      </button>
+    </nav>
+
+    <!-- ── Dashboard Tab ───────────────────────────────────────────── -->
+    <main class="content">
+      <section class="tab-content active" id="dashboard-section">
+        <div class="stats-grid" id="stats-grid">
+          <div class="stat-card stat-total" id="stat-total-failed">
+            <div class="stat-icon">💰</div>
+            <div class="stat-info">
+              <span class="stat-label">Total Failed Amount</span>
+              <span class="stat-value" id="val-total-failed">₹0</span>
+            </div>
+            <div class="stat-footer" id="footer-total-cases">0 cases</div>
+          </div>
+          <div class="stat-card stat-recoverable" id="stat-recoverable">
+            <div class="stat-icon">🔄</div>
+            <div class="stat-info">
+              <span class="stat-label">Recoverable Amount</span>
+              <span class="stat-value" id="val-recoverable">₹0</span>
+            </div>
+            <div class="stat-footer" id="footer-recoverable">includes pending + recovered</div>
+          </div>
+          <div class="stat-card stat-rate" id="stat-recovery-rate">
+            <div class="stat-icon">📈</div>
+            <div class="stat-info">
+              <span class="stat-label">Recovery Rate</span>
+              <span class="stat-value" id="val-recovery-rate">0%</span>
+            </div>
+            <div class="stat-footer" id="footer-recovered-cases">0 recovered</div>
+          </div>
+          <div class="stat-card stat-pending" id="stat-pending">
+            <div class="stat-icon">⏳</div>
+            <div class="stat-info">
+              <span class="stat-label">Pending Cases</span>
+              <span class="stat-value" id="val-pending">0</span>
+            </div>
+            <div class="stat-footer" id="footer-escalated">0 escalated</div>
+          </div>
+        </div>
+
+        <!-- Breakdown Charts -->
+        <div class="charts-grid">
+          <div class="chart-card" id="chart-failure-reasons">
+            <h3 class="chart-title">Failure Reasons</h3>
+            <div class="bar-chart" id="bars-failure-reasons"></div>
+          </div>
+          <div class="chart-card" id="chart-payment-methods">
+            <h3 class="chart-title">Payment Methods</h3>
+            <div class="bar-chart" id="bars-payment-methods"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Payments Tab ────────────────────────────────────────────── -->
+      <section class="tab-content" id="payments-section">
+        <div class="payments-toolbar" id="payments-toolbar">
+          <div class="filter-group">
+            <select id="filter-status" class="filter-select">
+              <option value="">All Statuses</option>
+              <option value="pending">Pending</option>
+              <option value="recovered">Recovered</option>
+              <option value="failed">Failed</option>
+              <option value="escalated">Escalated</option>
+            </select>
+            <select id="filter-method" class="filter-select">
+              <option value="">All Methods</option>
+              <option value="upi">UPI</option>
+              <option value="card">Card</option>
+              <option value="netbanking">Netbanking</option>
+              <option value="wallet">Wallet</option>
+              <option value="emandate">E-Mandate</option>
+            </select>
+            <select id="filter-segment" class="filter-select">
+              <option value="">All Segments</option>
+              <option value="new">New</option>
+              <option value="regular">Regular</option>
+              <option value="premium">Premium</option>
+              <option value="churning">Churning</option>
+            </select>
+          </div>
+          <div class="payments-count" id="payments-count">0 payments</div>
+        </div>
+        <div class="table-wrapper" id="table-wrapper">
+          <table class="payments-table" id="payments-table">
+            <thead>
+              <tr>
+                <th>Payment ID</th>
+                <th>Amount</th>
+                <th>Method</th>
+                <th>Failure Reason</th>
+                <th>Retries</th>
+                <th>Segment</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="payments-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ── Audit Log Tab ───────────────────────────────────────────── -->
+      <section class="tab-content" id="audit-section">
+        <div class="audit-header">
+          <h2 class="section-title">Decision Audit Trail</h2>
+          <span class="audit-count" id="audit-count">0 entries</span>
+        </div>
+        <div class="audit-feed" id="audit-feed"></div>
+      </section>
+    </main>
+
+    <!-- ── AI Decision Modal ─────────────────────────────────────────── -->
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal" id="decision-modal">
+        <div class="modal-header">
+          <h2 class="modal-title">AI Decision Panel</h2>
+          <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Toast Notifications ───────────────────────────────────────── -->
+    <div class="toast-container" id="toast-container"></div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
