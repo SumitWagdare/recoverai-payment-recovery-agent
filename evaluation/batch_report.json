@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-08-29T10:44:37.474422+05:30",
+  "baseline": {
+    "total": 120,
+    "recovered": 34,
+    "pending": 49,
+    "failed": 25,
+    "escalated": 12,
+    "recovery_rate": 28.3,
+    "revenue_recovered": 289262.12
+  },
+  "ai_assisted": {
+    "total": 120,
+    "recovered": 42,
+    "pending": 44,
+    "failed": 22,
+    "escalated": 12,
+    "recovery_rate": 35.0,
+    "revenue_recovered": 302378.6
+  },
+  "agent_stats": {
+    "processed": 74,
+    "auto_approved": 17,
+    "awaiting_approval": 56,
+    "stopped": 1,
+    "unsafe_blocked": 56,
+    "duplicate_blocked": 0,
+    "action_accuracy_pct": 100.0,
+    "actions": {
+      "send_payment_link": 35,
+      "escalate_to_support": 9,
+      "retry_later": 24,
+      "request_alt_method": 5
+    },
+    "categories": {
+      "customer_action_needed": 38,
+      "system_error": 7,
+      "temporary": 25,
+      "permanent": 3
+    }
+  },
+  "graceful_failures_count": 46,
+  "unresolved_count": 66,
+  "unresolved_amount": 447402.72,
+  "audit_entries": 73
+}
