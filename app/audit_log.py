@@ -55,8 +55,11 @@ def append_entry(
         "notes": notes,
     }
 
-    with open(AUDIT_LOG_PATH, "a") as f:
-        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    try:
+        with open(AUDIT_LOG_PATH, "a") as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    except OSError:
+        pass  # Vercel read-only filesystem handling
 
     return entry
 
@@ -81,9 +84,12 @@ def update_entry(audit_id: str, updates: dict) -> dict | None:
             break
 
     if updated_entry:
-        with open(AUDIT_LOG_PATH, "w") as f:
-            for entry in entries:
-                f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        try:
+            with open(AUDIT_LOG_PATH, "w") as f:
+                for entry in entries:
+                    f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        except OSError:
+            pass
 
     return updated_entry
 

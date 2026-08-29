@@ -41,8 +41,11 @@ def load_payments() -> list[dict]:
 
 def save_payments(payments: list[dict]):
     """Save payments back to the dataset."""
-    with open(DATA_PATH, "w") as f:
-        json.dump(payments, f, indent=2, ensure_ascii=False)
+    try:
+        with open(DATA_PATH, "w") as f:
+            json.dump(payments, f, indent=2, ensure_ascii=False)
+    except OSError:
+        pass  # Vercel read-only filesystem handling
 
 
 def get_payment(payment_id: str) -> dict | None:
