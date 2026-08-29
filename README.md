@@ -2,6 +2,7 @@
 
 **Explainable AI agent for detecting failed payments and executing safe revenue-recovery workflows.**
 
+🔗 **[Live Demo / Video Pitch](https://recoverai-payment-recovery-agent.vercel.app/)**
 ### Dashboard
 ![RecoverAI Dashboard Screenshot](docs/dashboard.png)
 ### Payments View
@@ -67,6 +68,9 @@ To test the AI engine against the entire dataset and generate a comparative repo
 ```bash
 python scripts/run_batch.py
 ```
+> [!NOTE]
+> Running this script is a destructive operation designed for clean benchmarking. It intentionally mutates `data/synthetic_payments.json` by regenerating fresh data and clears `data/audit_log.jsonl` before running the evaluation.
+
 This produces a detailed JSON report in `evaluation/batch_report.json`. Read the [Evaluation Report](EVALUATION.md) for the latest benchmark.
 
 ---
