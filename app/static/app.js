@@ -351,6 +351,9 @@ async function openReview(paymentId) {
         <div class="badge badge-coral mb-4">Safety Block</div>
         <div class="reasoning-box">${result.stop_reason}</div>
       `;
+      $('#drawer-footer').innerHTML = `
+        <button class="btn btn-secondary" style="flex:1" onclick="closeDrawer()">Dismiss</button>
+      `;
       return;
     }
     
