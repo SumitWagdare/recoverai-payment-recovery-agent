@@ -1,150 +1,92 @@
-# RecoverAI — Payment Recovery Agent
+# RecoverAI
 
-> **Explainable AI agent for detecting failed payments and executing safe revenue-recovery workflows.**
+**Explainable AI agent for detecting failed payments and executing safe revenue-recovery workflows.**
 
----
+![RecoverAI Dashboard Placeholder](https://via.placeholder.com/1200x600.png?text=RecoverAI+Dashboard+Screenshot)
 
-## Problem Statement
+## The Problem
+E-commerce and SaaS platforms lose millions of dollars globally to involuntary churn caused by failed payments (expired cards, insufficient funds, network timeouts). Traditional retry systems are binary and rigid, often alienating customers or escalating recovery costs. An intelligent, contextual recovery system is needed to gracefully handle exceptions, reduce churn, and maintain customer trust.
 
-Every digital business that accepts online payments suffers from **failed transactions** — card declines, bank timeouts, UPI failures, insufficient-balance errors, and authentication drop-offs. Industry data shows that 10–25 % of recurring and one-time payment attempts fail, and a significant share of that revenue is recoverable with timely, well-crafted follow-ups.
+## The Solution
+RecoverAI is a Python-based autonomous agent that acts as an intelligent recovery orchestrator. It uses an explainable rule-based AI engine to classify the root cause of a failed payment and recommends a bounded, context-aware recovery action.
 
-Today, most recovery workflows are either:
+### Key Features
+- **Explainable Decisions**: Every action recommendation is accompanied by a plain-text reasoning string.
+- **Safety First**: Implements strict guardrails (maximum retries, cooldown periods).
+- **Human-in-the-Loop**: High-value and customer-facing actions are held for mandatory human operator approval.
+- **Duplicate Prevention**: 24-hour cooldown on customer communications.
+- **Audit Log**: Immutable JSON Lines trail for all AI decisions and operator actions.
+- **Interactive Dashboard**: Premium dark-mode UI for monitoring operations and approving actions.
 
-| Approach | Weakness |
-|---|---|
-| **Manual** (support teams chase customers) | Slow, expensive, doesn't scale |
-| **Brute-force retries** (blind cron-based re-attempts) | Annoying to customers, low success rate |
-| **Static rule engines** (retry after X hours) | Cannot adapt to customer context or failure reason |
-
-There is no open-source, **explainable** agent that combines failure-reason classification, customer-context analysis, and safe automated recovery actions — while keeping a human in the loop for high-risk decisions.
-
----
-
-## Intended Users
-
-| Persona | How they benefit |
-|---|---|
-| **Fintech / SaaS engineering teams** | Integrate a pluggable recovery agent into their payment stack |
-| **Product managers** | Understand *why* payments fail and which recovery actions work |
-| **Data scientists** | Experiment with failure-classification models and policy tuning |
-| **Compliance / risk teams** | Audit every recovery action via explainability logs |
+> [!WARNING]
+> **Safety Note:** This project uses synthetic data and Razorpay test-mode concepts only. It is a simulation framework designed for evaluation and **must never trigger real payments or uncontrolled customer communication.**
 
 ---
 
-## Proposed Solution
+## Architecture
+RecoverAI is built entirely in Python (backend) and Vanilla HTML/CSS/JS (frontend) without heavy framework dependencies.
 
-**RecoverAI** is an AI agent that:
-
-1. **Classifies** each failed payment by root cause (insufficient funds, expired card, bank downtime, authentication failure, network timeout, etc.).
-2. **Decides** the best recovery action using a policy model that considers:
-   - failure reason and historical success rate for that reason
-   - customer payment history and churn risk
-   - time-of-day, retry fatigue, and regulatory constraints
-3. **Executes** safe, auditable actions:
-   - Smart retry (with back-off and jitter)
-   - Customer nudge (email / SMS / in-app, drafted by an LLM and human-approved)
-   - Payment-link generation
-   - Escalation to a human agent
-4. **Explains** every decision in plain language so that support, product, and compliance teams can review and override.
-
-### Architecture Overview
-
-```
-┌─────────────┐     ┌────────────────┐     ┌──────────────────┐
-│  Payment     │────▶│  Failure       │────▶│  Recovery Policy │
-│  Event       │     │  Classifier    │     │  Engine          │
-│  Ingestion   │     │  (ML / Rules)  │     │  (RL / Heuristic)│
-└─────────────┘     └────────────────┘     └──────┬───────────┘
-                                                   │
-                          ┌────────────────────────┼────────────┐
-                          ▼                        ▼            ▼
-                   ┌─────────────┐    ┌────────────────┐  ┌──────────┐
-                   │ Smart Retry │    │ Customer Nudge │  │ Escalate │
-                   │ Engine      │    │ (LLM-drafted)  │  │ to Human │
-                   └─────────────┘    └────────────────┘  └──────────┘
-                          │                    │                │
-                          ▼                    ▼                ▼
-                   ┌───────────────────────────────────────────────┐
-                   │         Explainability & Audit Log            │
-                   └───────────────────────────────────────────────┘
-```
+Read the detailed [Architecture Guide](ARCHITECTURE.md) for more information.
 
 ---
 
-## What Will Be Measured
+## Setup & Execution
 
-| Metric | Description |
-|---|---|
-| **Recovery Rate** | % of failed payments successfully recovered |
-| **Time to Recovery** | Median time from failure to successful payment |
-| **False-Positive Rate** | Actions taken on payments that would have self-resolved |
-| **Customer Satisfaction (proxy)** | Opt-out / unsubscribe rate after nudges |
-| **Explainability Score** | % of decisions with human-readable rationale |
-| **Action Audit Coverage** | % of actions logged with full trace |
+### Prerequisites
+- Python 3.10+
+- `pip`
 
----
-
-## Project Structure
-
-```
-recoverai-payment-recovery-agent/
-├── app/                 # Core application code (agent, API, services)
-├── data/                # Synthetic datasets and data-generation scripts
-├── models/              # ML model definitions, training scripts, checkpoints
-├── evaluation/          # Evaluation harnesses, metrics, benchmark results
-├── docs/                # Design documents, ADRs, API specs
-├── tests/               # Unit, integration, and end-to-end tests
-├── scripts/             # Dev-ops and utility scripts
-├── .gitignore
-├── LICENSE              # MIT License
-└── README.md
-```
-
----
-
-## ⚠️ Safety Notice
-
-> **🚨 CAUTION — Synthetic Data & Test-Mode Only**
->
-> This project uses **synthetic data** and **[Razorpay test-mode](https://razorpay.com/docs/payments/payments/test-mode/) concepts only**.
->
-> - **No real payment gateway credentials** may be configured in any environment.
-> - **No real customer PII** is stored, processed, or transmitted.
-> - **No real payment retries or charges** are ever triggered.
-> - **No uncontrolled customer communication** (email, SMS, push) is sent.
->
-> All payment objects, customer profiles, and transaction histories are **entirely synthetic** and generated for development and evaluation purposes.
->
-> Before adapting this project for production use, a thorough **security review**, **PCI-DSS compliance assessment**, and **human-in-the-loop approval workflow** must be implemented.
-
----
-
-## Getting Started
-
+### 1. Installation
+Clone the repository and install the minimal dependencies:
 ```bash
-# Clone the repository
-git clone https://github.com/<your-username>/recoverai-payment-recovery-agent.git
+git clone https://github.com/SumitWagdare/recoverai-payment-recovery-agent.git
 cd recoverai-payment-recovery-agent
-
-# Create a virtual environment
-python -m venv .venv
-source .venv/bin/activate   # macOS / Linux
-
-# Install dependencies (once added)
 pip install -r requirements.txt
-
-# Run tests
-pytest tests/
 ```
 
+### 2. Generate Synthetic Data (Optional)
+The repository comes with a pre-generated synthetic dataset and a demo file. You can regenerate a fresh dataset of 120 payments:
+```bash
+python scripts/generate_data.py
+```
+
+### 3. Run the Dashboard API
+Start the Flask backend:
+```bash
+python -m app.server
+```
+Open **http://127.0.0.1:5000** in your web browser.
+
+### 4. Run the Batch Evaluation
+To test the AI engine against the entire dataset and generate a comparative report:
+```bash
+python scripts/run_batch.py
+```
+This produces a detailed JSON report in `evaluation/batch_report.json`. Read the [Evaluation Report](EVALUATION.md) for the latest benchmark.
+
 ---
 
-## Contributing
-
-Contributions are welcome! Please read the [Contributing Guide](docs/CONTRIBUTING.md) before submitting a pull request.
+## Sample Workflow
+1. A simulated payment failure occurs (e.g., `insufficient_funds`).
+2. The **AI Engine** (`app/ai_engine.py`) classifies the failure as `customer_action_needed`.
+3. The AI recommends the `send_payment_link` action.
+4. The **Recovery Agent** (`app/recovery_agent.py`) intercepts the action. Because it is customer-facing, it flags it as `awaiting_approval`.
+5. An entry is appended to the **Audit Log** (`data/audit_log.jsonl`).
+6. A human operator reviews the decision in the **Dashboard** and clicks "Approve Action".
+7. The simulated action executes successfully, and the payment status changes to `recovered`.
 
 ---
+
+## Limitations
+- **Rule-Based Engine**: The current AI engine uses heuristics rather than a trained ML model to guarantee explainability and 100% deterministic behaviour for this v1 release.
+- **Simulated Actions**: Integration with real payment gateways (e.g., Stripe, Razorpay) and communication channels (e.g., Twilio, SendGrid) is mocked.
+- **Single Node**: State is managed via local JSON files. It is not currently safe for concurrent, multi-node deployments.
+
+## Future Improvements
+- **LLM Integration**: Replace the rule-based engine with an LLM prompt chain (using LangChain or similar) for parsing ambiguous error messages from payment gateways, maintaining the existing approval guardrails.
+- **Database Backend**: Migrate from JSON files to PostgreSQL or SQLite.
+- **Live Integrations**: Add actual webhook listeners and API clients for payment gateways.
+- **A/B Testing**: Support evaluating multiple recovery strategies simultaneously.
 
 ## License
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+MIT License. See [LICENSE](LICENSE) for details.
