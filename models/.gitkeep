@@ -1,0 +1,4 @@
+# RecoverAI — Models
+#
+# ML model definitions, training scripts, and configuration.
+# Large checkpoint files (*.pt, *.pth, *.onnx) are git-ignored.

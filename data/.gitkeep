@@ -1,0 +1,5 @@
+# RecoverAI — Synthetic Data
+#
+# This directory holds synthetic datasets and data-generation scripts.
+# All data here is artificially generated for development and testing.
+# No real customer PII or payment data may ever be placed in this directory.

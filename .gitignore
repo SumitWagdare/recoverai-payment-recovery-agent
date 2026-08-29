@@ -1,0 +1,74 @@
+# =============================================================================
+# RecoverAI — .gitignore
+# =============================================================================
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+*.whl
+pip-wheel-metadata/
+
+# ---------- Virtual environments ----------
+.venv/
+venv/
+ENV/
+env/
+
+# ---------- IDE / Editor ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ---------- Jupyter ----------
+.ipynb_checkpoints/
+
+# ---------- Environment & secrets ----------
+.env
+.env.*
+*.pem
+*.key
+secrets/
+
+# ---------- Model artifacts (large files) ----------
+*.pt
+*.pth
+*.onnx
+*.pkl
+*.h5
+*.safetensors
+models/checkpoints/
+
+# ---------- Data (keep synthetic generators, ignore generated data) ----------
+data/raw/
+data/processed/
+*.csv
+*.parquet
+!data/sample/*.csv
+
+# ---------- Logs & temp ----------
+logs/
+*.log
+tmp/
+*.tmp
+
+# ---------- Coverage & test artifacts ----------
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---------- Distribution ----------
+*.tar.gz
+*.zip
