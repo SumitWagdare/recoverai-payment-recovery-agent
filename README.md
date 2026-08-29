@@ -2,7 +2,12 @@
 
 **Explainable AI agent for detecting failed payments and executing safe revenue-recovery workflows.**
 
+### Dashboard
 ![RecoverAI Dashboard Screenshot](docs/dashboard.png)
+### Payments View
+![RecoverAI Payments Screenshot](docs/payments.png)
+### Audit Log
+![RecoverAI Audit Log Screenshot](docs/audit_log.png)
 
 ## The Problem
 E-commerce and SaaS platforms lose millions of dollars globally to involuntary churn caused by failed payments (expired cards, insufficient funds, network timeouts). Traditional retry systems are binary and rigid, often alienating customers or escalating recovery costs. An intelligent, contextual recovery system is needed to gracefully handle exceptions, reduce churn, and maintain customer trust.
