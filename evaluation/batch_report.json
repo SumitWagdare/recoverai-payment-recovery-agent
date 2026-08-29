@@ -1,46 +1,45 @@
 {
-  "timestamp": "2026-08-29T11:10:01.865848+05:30",
   "baseline": {
     "total": 120,
-    "recovered": 34,
-    "pending": 49,
+    "recovered": 33,
+    "pending": 48,
     "failed": 25,
-    "escalated": 12,
-    "recovery_rate": 28.3,
-    "revenue_recovered": 289262.12
+    "escalated": 14,
+    "recovery_rate": 27.5,
+    "revenue_recovered": 242048.78
   },
   "ai_assisted": {
     "total": 120,
-    "recovered": 46,
-    "pending": 40,
+    "recovered": 37,
+    "pending": 47,
     "failed": 22,
-    "escalated": 12,
-    "recovery_rate": 38.3,
-    "revenue_recovered": 305529.53
+    "escalated": 14,
+    "recovery_rate": 30.8,
+    "revenue_recovered": 248643.19
   },
   "agent_stats": {
-    "processed": 74,
-    "auto_approved": 17,
-    "awaiting_approval": 56,
+    "processed": 73,
+    "auto_approved": 15,
+    "awaiting_approval": 57,
     "stopped": 1,
-    "unsafe_blocked": 56,
+    "unsafe_blocked": 57,
     "duplicate_blocked": 0,
     "action_accuracy_pct": 100.0,
     "actions": {
-      "send_payment_link": 35,
-      "escalate_to_support": 9,
-      "retry_later": 24,
-      "request_alt_method": 5
+      "retry_later": 20,
+      "request_alt_method": 10,
+      "send_payment_link": 30,
+      "escalate_to_support": 12
     },
     "categories": {
-      "customer_action_needed": 38,
-      "system_error": 7,
-      "temporary": 25,
-      "permanent": 3
+      "temporary": 22,
+      "permanent": 5,
+      "customer_action_needed": 36,
+      "system_error": 9
     }
   },
-  "graceful_failures_count": 46,
-  "unresolved_count": 62,
-  "unresolved_amount": 444251.79,
-  "audit_entries": 73
+  "graceful_failures_count": 31,
+  "unresolved_count": 69,
+  "unresolved_amount": 425148.81,
+  "audit_entries": 72
 }

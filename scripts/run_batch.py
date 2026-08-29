@@ -28,6 +28,8 @@ DOUBLE_SEP = "═" * 70
 
 
 def main():
+    import random
+    random.seed(42)
     print(f"\n{DOUBLE_SEP}")
     print("  RecoverAI — Batch Processing & Evaluation Report")
     print(DOUBLE_SEP)
@@ -289,7 +291,6 @@ def main():
 
     # ── 10. Save structured report ────────────────────────────────────
     report = {
-        "timestamp": datetime.now(IST).isoformat(),
         "baseline": {
             "total": total,
             "recovered": len(b_rec),

@@ -10,31 +10,31 @@ RecoverAI includes a batch processing script (`scripts/run_batch.py`) to systema
 
 | Metric | Baseline | AI-Assisted | Delta |
 |--------|----------|-------------|-------|
-| **Recovery Rate** | 28.3% | 38.3% | **+10.0%** |
-| **Revenue Recovered** | ₹289,262 | ₹305,530 | **+₹16,267** |
-| **Recovered Cases** | 34 | 46 | +12 |
-| **Pending Cases** | 49 | 40 | -9 |
+| **Recovery Rate** | 27.5% | 30.8% | **+3.3%** |
+| **Revenue Recovered** | ₹242,049 | ₹248,643 | **+₹6,594** |
+| **Recovered Cases** | 33 | 37 | +4 |
+| **Pending Cases** | 48 | 47 | -1 |
 | **Failed Cases** | 25 | 22 | -3 |
-| **Escalated Cases**| 12 | 12 | 0 |
+| **Escalated Cases**| 14 | 14 | 0 |
 
 > [!TIP]
-> The AI agent successfully recovered an additional **₹16,267** through automated, safe retries without requiring human intervention.
+> The AI agent successfully recovered an additional **₹6,594** through automated, safe retries without requiring human intervention.
 
 ### Agent Action Distribution
 
-Of the 74 actionable payments processed by the agent:
+Of the 73 actionable payments processed by the agent:
 
-- **Send Payment Link**: 35
-- **Retry Later**: 24
-- **Escalate To Support**: 9
-- **Request Alt Method**: 5
+- **Send Payment Link**: 30
+- **Retry Later**: 20
+- **Escalate To Support**: 12
+- **Request Alt Method**: 10
 
 ### Safety & Automation Metrics
 
-- **Total Processed**: 74
-- **Action Accuracy**: 100.0% (AI decisions strictly adhered to the policy matrix)
-- **Auto-approved**: 17 actions executed automatically (safe retries).
-- **Awaiting Approval**: 56 actions held safely for human review (customer communication or high-value).
+- **Total Processed**: 73
+- **Action Accuracy**: Policy-conformance accuracy on the synthetic evaluation batch; this is not a claim of real-world predictive accuracy. (100.0%)
+- **Auto-approved**: 15 actions executed automatically (safe retries).
+- **Awaiting Approval**: 57 actions held safely for human review (customer communication or high-value).
 - **Duplicate Blocks**: 0 (in this clean dataset; see unit tests for duplicate prevention coverage).
 - **Safety Blocks**: 1 (stopped due to cooldown / max-retry rules).
 

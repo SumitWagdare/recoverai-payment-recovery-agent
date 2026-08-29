@@ -1,201 +1,129 @@
 [
   {
-    "payment_id": "pay_ce9209dd28a2",
-    "amount": 4030.1,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 1,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-07-31T19:04:24.780906+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      }
-    ],
-    "customer_segment": "regular",
-    "customer_id": "cust_87505196",
-    "timestamp": "2026-07-31T18:04:24.780906+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_a7d14f6ba3a8",
-    "amount": 3634.82,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "authentication_failed",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-21T21:32:44.781089+05:30",
-        "outcome": "failed",
-        "reason": "authentication_failed"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-22T20:32:44.781089+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      }
-    ],
-    "customer_segment": "new",
-    "customer_id": "cust_2bec2c3b",
-    "timestamp": "2026-08-21T20:32:44.781089+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_59eae7d1ca42",
-    "amount": 93.52,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-02T11:31:45.781115+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-02T17:31:45.781115+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      }
-    ],
-    "customer_segment": "churning",
-    "customer_id": "cust_5b514fb7",
-    "timestamp": "2026-08-01T23:31:45.781115+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_45d6e6700c38",
-    "amount": 4585.12,
-    "currency": "INR",
-    "payment_method": "emandate",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "regular",
-    "customer_id": "cust_7632d3ca",
-    "timestamp": "2026-08-11T04:24:57.781136+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_223be8a53fbe",
-    "amount": 175.09,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "bank_server_down",
-    "retry_count": 1,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-09T10:59:38.781151+05:30",
-        "outcome": "failed",
-        "reason": "bank_server_down"
-      }
-    ],
-    "customer_segment": "new",
-    "customer_id": "cust_8bb42af7",
-    "timestamp": "2026-08-08T23:59:38.781151+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_1e4c34da5678",
-    "amount": 2734.43,
+    "payment_id": "pay_bdd640fb0667",
+    "amount": 544.7,
     "currency": "INR",
     "payment_method": "netbanking",
     "failure_reason": "network_timeout",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "churning",
+    "customer_id": "cust_23b8c1e9",
+    "timestamp": "2026-08-23T04:27:22+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_b38a088ca65e",
+    "amount": 3020.75,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "invalid_card",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "new",
+    "customer_id": "cust_72ff5d2a",
+    "timestamp": "2026-08-25T05:11:39+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_d8f564135be6",
+    "amount": 181.93,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "authentication_failed",
     "retry_count": 1,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-15T07:52:02.781166+05:30",
+        "timestamp": "2026-08-08T20:03:05+05:30",
         "outcome": "failed",
-        "reason": "network_timeout"
+        "reason": "authentication_failed"
       }
     ],
     "customer_segment": "new",
-    "customer_id": "cust_3346c94d",
-    "timestamp": "2026-08-14T22:52:02.781166+05:30",
+    "customer_id": "cust_ce9ff57f",
+    "timestamp": "2026-08-08T16:03:05+05:30",
+    "recovery_status": "escalated"
+  },
+  {
+    "payment_id": "pay_c5e7ce8a3a57",
+    "amount": 1055.27,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 3,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-23T01:42:16+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-23T10:42:16+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      },
+      {
+        "attempt": 3,
+        "timestamp": "2026-08-23T17:42:16+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_daf61a26",
+    "timestamp": "2026-08-22T14:42:16+05:30",
     "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_77d3b6f8ad07",
-    "amount": 191.95,
+    "payment_id": "pay_451b4cf36123",
+    "amount": 548.15,
     "currency": "INR",
-    "payment_method": "netbanking",
+    "payment_method": "card",
+    "failure_reason": "network_timeout",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "premium",
+    "customer_id": "cust_b02b61c4",
+    "timestamp": "2026-08-18T23:42:56+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_b7c93acfe059",
+    "amount": 1342.05,
+    "currency": "INR",
+    "payment_method": "card",
     "failure_reason": "payment_cancelled",
     "retry_count": 3,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-21T20:56:03.781181+05:30",
+        "timestamp": "2026-08-20T19:22:33+05:30",
         "outcome": "failed",
         "reason": "payment_cancelled"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-21T16:56:03.781181+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
+        "timestamp": "2026-08-20T20:22:33+05:30",
+        "outcome": "failed",
+        "reason": "payment_cancelled"
       },
       {
         "attempt": 3,
-        "timestamp": "2026-08-22T05:56:03.781181+05:30",
+        "timestamp": "2026-08-21T15:22:33+05:30",
         "outcome": "timeout",
         "reason": "network_timeout"
       }
     ],
-    "customer_segment": "premium",
-    "customer_id": "cust_1fa2e37c",
-    "timestamp": "2026-08-21T08:56:03.781181+05:30",
+    "customer_segment": "regular",
+    "customer_id": "cust_7fcd9eb1",
+    "timestamp": "2026-08-20T12:22:33+05:30",
     "recovery_status": "pending"
   },
   {
-    "payment_id": "pay_3ef9d16bddd2",
-    "amount": 3285.3,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 4,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-11T01:46:47.781199+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-11T02:46:47.781199+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      },
-      {
-        "attempt": 3,
-        "timestamp": "2026-08-11T04:46:47.781199+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      },
-      {
-        "attempt": 4,
-        "timestamp": "2026-08-12T18:46:47.781199+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      }
-    ],
-    "customer_segment": "premium",
-    "customer_id": "cust_af5b3b72",
-    "timestamp": "2026-08-10T22:46:47.781199+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_18c224644eba",
+    "payment_id": "pay_dc713d960c0f",
     "amount": 33519.0,
     "currency": "INR",
     "payment_method": "netbanking",
@@ -203,352 +131,272 @@
     "retry_count": 0,
     "retry_history": [],
     "customer_segment": "new",
-    "customer_id": "cust_51988c67",
-    "timestamp": "2026-08-12T10:26:15.781221+05:30",
+    "customer_id": "cust_28f49481",
+    "timestamp": "2026-08-12T11:16:14+05:30",
     "recovery_status": "pending"
   },
   {
-    "payment_id": "pay_69a3b9042e17",
-    "amount": 737.24,
-    "currency": "INR",
-    "payment_method": "wallet",
-    "failure_reason": "network_timeout",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "premium",
-    "customer_id": "cust_e1cc9111",
-    "timestamp": "2026-08-28T11:13:15.781235+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_1e468a791396",
-    "amount": 1458.42,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-10T14:00:38.781248+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-11T01:00:38.781248+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      }
-    ],
-    "customer_segment": "churning",
-    "customer_id": "cust_bc84d4b8",
-    "timestamp": "2026-08-10T05:00:38.781248+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_b4f1aa744e6b",
-    "amount": 7394.52,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-21T19:04:56.781264+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-21T23:04:56.781264+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      }
-    ],
-    "customer_segment": "regular",
-    "customer_id": "cust_4f56b761",
-    "timestamp": "2026-08-21T17:04:56.781264+05:30",
-    "recovery_status": "escalated"
-  },
-  {
-    "payment_id": "pay_3edc631aba54",
-    "amount": 47511.97,
-    "currency": "INR",
-    "payment_method": "emandate",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-04T18:25:49.781280+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-05T03:25:49.781280+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      }
-    ],
-    "customer_segment": "regular",
-    "customer_id": "cust_85b0ac4a",
-    "timestamp": "2026-08-04T11:25:49.781280+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_3a0044c48ff6",
-    "amount": 830.33,
+    "payment_id": "pay_444ea7c8c039",
+    "amount": 4915.66,
     "currency": "INR",
     "payment_method": "upi",
     "failure_reason": "insufficient_funds",
     "retry_count": 0,
     "retry_history": [],
-    "customer_segment": "regular",
-    "customer_id": "cust_16de5e4f",
-    "timestamp": "2026-08-26T12:29:58.781296+05:30",
-    "recovery_status": "recovered"
+    "customer_segment": "new",
+    "customer_id": "cust_1c8eaee9",
+    "timestamp": "2026-08-05T06:27:02+05:30",
+    "recovery_status": "failed"
   },
   {
-    "payment_id": "pay_56b8748cec5a",
-    "amount": 2642.71,
+    "payment_id": "pay_a39231a7d777",
+    "amount": 35963.06,
     "currency": "INR",
-    "payment_method": "wallet",
-    "failure_reason": "payment_cancelled",
+    "payment_method": "card",
+    "failure_reason": "insufficient_funds",
     "retry_count": 1,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-24T19:10:05.781309+05:30",
+        "timestamp": "2026-08-14T16:52:01+05:30",
         "outcome": "failed",
-        "reason": "payment_cancelled"
+        "reason": "insufficient_funds"
       }
     ],
-    "customer_segment": "new",
-    "customer_id": "cust_fa84c22c",
-    "timestamp": "2026-08-24T11:10:05.781309+05:30",
-    "recovery_status": "pending"
+    "customer_segment": "churning",
+    "customer_id": "cust_2720797d",
+    "timestamp": "2026-08-14T11:52:01+05:30",
+    "recovery_status": "escalated"
   },
   {
-    "payment_id": "pay_11aa4eaa007d",
-    "amount": 1135.37,
+    "payment_id": "pay_913e4de2e0c5",
+    "amount": 263.88,
     "currency": "INR",
-    "payment_method": "netbanking",
-    "failure_reason": "payment_cancelled",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-14T23:06:18.781322+05:30",
-        "outcome": "failed",
-        "reason": "payment_cancelled"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-14T14:06:18.781322+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      }
-    ],
-    "customer_segment": "new",
-    "customer_id": "cust_7499d44d",
-    "timestamp": "2026-08-14T12:06:18.781322+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_22b30791fade",
-    "amount": 2420.55,
-    "currency": "INR",
-    "payment_method": "netbanking",
-    "failure_reason": "payment_cancelled",
+    "payment_method": "card",
+    "failure_reason": "insufficient_funds",
     "retry_count": 3,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-24T04:40:46.781338+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
+        "timestamp": "2026-08-12T13:43:27+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-24T20:40:46.781338+05:30",
+        "timestamp": "2026-08-13T00:43:27+05:30",
         "outcome": "failed",
-        "reason": "payment_cancelled"
+        "reason": "insufficient_funds"
       },
       {
         "attempt": 3,
-        "timestamp": "2026-08-24T05:40:46.781338+05:30",
-        "outcome": "failed",
-        "reason": "payment_cancelled"
-      }
-    ],
-    "customer_segment": "new",
-    "customer_id": "cust_b25ea7ed",
-    "timestamp": "2026-08-24T02:40:46.781338+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_e92d24da2f5d",
-    "amount": 820.62,
-    "currency": "INR",
-    "payment_method": "emandate",
-    "failure_reason": "emandate_debit_failed",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "premium",
-    "customer_id": "cust_9fbadb57",
-    "timestamp": "2026-08-17T09:59:37.781355+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_8a851ca8bbf5",
-    "amount": 4191.52,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "payment_cancelled",
-    "retry_count": 1,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-03T21:27:16.781368+05:30",
-        "outcome": "failed",
-        "reason": "payment_cancelled"
-      }
-    ],
-    "customer_segment": "premium",
-    "customer_id": "cust_05b25659",
-    "timestamp": "2026-08-03T17:27:16.781368+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_6fa6a22790a9",
-    "amount": 575.21,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 1,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-13T19:11:07.781382+05:30",
+        "timestamp": "2026-08-13T18:43:27+05:30",
         "outcome": "failed",
         "reason": "insufficient_funds"
       }
     ],
     "customer_segment": "premium",
-    "customer_id": "cust_a309515c",
-    "timestamp": "2026-08-13T18:11:07.781382+05:30",
+    "customer_id": "cust_bb5e4bcf",
+    "timestamp": "2026-08-12T06:43:27+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_a65e688eabf3",
+    "amount": 3765.32,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "card_expired",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "new",
+    "customer_id": "cust_847fd9b4",
+    "timestamp": "2026-08-29T09:14:20+05:30",
     "recovery_status": "pending"
   },
   {
-    "payment_id": "pay_9b1ce29d0139",
-    "amount": 1912.39,
+    "payment_id": "pay_dc1110c1080a",
+    "amount": 10762.12,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "authentication_failed",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "regular",
+    "customer_id": "cust_3ceddf2d",
+    "timestamp": "2026-08-21T20:08:34+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_5ab33edf6e59",
+    "amount": 1008.95,
+    "currency": "INR",
+    "payment_method": "netbanking",
+    "failure_reason": "network_timeout",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "churning",
+    "customer_id": "cust_dd2467ac",
+    "timestamp": "2026-08-02T08:44:48+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_2ef912766c00",
+    "amount": 499.68,
+    "currency": "INR",
+    "payment_method": "emandate",
+    "failure_reason": "bank_server_down",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-03T15:54:01+05:30",
+        "outcome": "failed",
+        "reason": "bank_server_down"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-04T01:54:01+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
+      }
+    ],
+    "customer_segment": "churning",
+    "customer_id": "cust_dfde4fbf",
+    "timestamp": "2026-08-03T11:54:01+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_66aa9385dd59",
+    "amount": 1544.89,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "bank_server_down",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-05T22:17:15+05:30",
+        "outcome": "failed",
+        "reason": "bank_server_down"
+      }
+    ],
+    "customer_segment": "churning",
+    "customer_id": "cust_610461e3",
+    "timestamp": "2026-08-05T18:17:15+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_944528c00ef8",
+    "amount": 2170.64,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "regular",
+    "customer_id": "cust_bf7b539b",
+    "timestamp": "2026-08-13T09:05:49+05:30",
+    "recovery_status": "escalated"
+  },
+  {
+    "payment_id": "pay_3c365296dca0",
+    "amount": 3695.68,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "authentication_failed",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-19T07:46:18+05:30",
+        "outcome": "failed",
+        "reason": "authentication_failed"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-19T17:46:18+05:30",
+        "outcome": "failed",
+        "reason": "authentication_failed"
+      }
+    ],
+    "customer_segment": "new",
+    "customer_id": "cust_e3e9de99",
+    "timestamp": "2026-08-19T03:46:18+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_750cab754ccc",
+    "amount": 145.92,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "authentication_failed",
+    "retry_count": 3,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-21T11:00:38+05:30",
+        "outcome": "failed",
+        "reason": "authentication_failed"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-21T17:00:38+05:30",
+        "outcome": "failed",
+        "reason": "authentication_failed"
+      },
+      {
+        "attempt": 3,
+        "timestamp": "2026-08-22T07:00:38+05:30",
+        "outcome": "failed",
+        "reason": "authentication_failed"
+      }
+    ],
+    "customer_segment": "churning",
+    "customer_id": "cust_ef8c485b",
+    "timestamp": "2026-08-21T07:00:38+05:30",
+    "recovery_status": "escalated"
+  },
+  {
+    "payment_id": "pay_ce9e1a11fcbb",
+    "amount": 101.94,
     "currency": "INR",
     "payment_method": "wallet",
     "failure_reason": "insufficient_funds",
     "retry_count": 0,
     "retry_history": [],
-    "customer_segment": "new",
-    "customer_id": "cust_62eb2866",
-    "timestamp": "2026-08-11T03:32:23.781395+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_395dc280d642",
-    "amount": 1504.59,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "network_timeout",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "regular",
-    "customer_id": "cust_9198c4ce",
-    "timestamp": "2026-08-19T03:53:36.781407+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_3d8f40a5f7bc",
-    "amount": 329.52,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "bank_server_down",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "churning",
-    "customer_id": "cust_d57a5ebc",
-    "timestamp": "2026-08-11T08:05:27.781419+05:30",
+    "customer_segment": "premium",
+    "customer_id": "cust_aaf91531",
+    "timestamp": "2026-08-25T12:24:51+05:30",
     "recovery_status": "escalated"
   },
   {
-    "payment_id": "pay_46bf0360741b",
-    "amount": 736.62,
+    "payment_id": "pay_57c700aab7b5",
+    "amount": 240.61,
     "currency": "INR",
     "payment_method": "upi",
-    "failure_reason": "upi_pin_not_set",
-    "retry_count": 1,
+    "failure_reason": "authentication_failed",
+    "retry_count": 2,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-03T04:24:42.781431+05:30",
+        "timestamp": "2026-08-21T21:59:39+05:30",
         "outcome": "failed",
-        "reason": "upi_pin_not_set"
+        "reason": "authentication_failed"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-21T16:59:39+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
       }
     ],
     "customer_segment": "churning",
-    "customer_id": "cust_25eabd31",
-    "timestamp": "2026-08-02T17:24:42.781431+05:30",
+    "customer_id": "cust_da587e8a",
+    "timestamp": "2026-08-21T10:59:39+05:30",
     "recovery_status": "failed"
   },
   {
-    "payment_id": "pay_0e86ce5e2d70",
-    "amount": 7644.66,
-    "currency": "INR",
-    "payment_method": "netbanking",
-    "failure_reason": "authentication_failed",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "churning",
-    "customer_id": "cust_865929c6",
-    "timestamp": "2026-08-01T07:22:26.781445+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_667060389ed7",
-    "amount": 10054.09,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 1,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-21T15:04:21.781458+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      }
-    ],
-    "customer_segment": "regular",
-    "customer_id": "cust_c61e14bc",
-    "timestamp": "2026-08-21T10:04:21.781458+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_dc5d08bbb525",
-    "amount": 3655.04,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "payment_cancelled",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "regular",
-    "customer_id": "cust_12bb1643",
-    "timestamp": "2026-08-15T18:09:54.781472+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_698e972e78b6",
+    "payment_id": "pay_8f9797b06d7c",
     "amount": 2444.28,
     "currency": "INR",
     "payment_method": "wallet",
@@ -557,83 +405,279 @@
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-25T10:50:38.781484+05:30",
+        "timestamp": "2026-08-25T11:40:37+05:30",
         "outcome": "failed",
         "reason": "payment_cancelled"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-25T17:50:38.781484+05:30",
+        "timestamp": "2026-08-25T18:40:37+05:30",
         "outcome": "failed",
         "reason": "payment_cancelled"
       },
       {
         "attempt": 3,
-        "timestamp": "2026-08-26T18:50:38.781484+05:30",
+        "timestamp": "2026-08-26T19:40:37+05:30",
         "outcome": "failed",
         "reason": "payment_cancelled"
       }
     ],
     "customer_segment": "regular",
-    "customer_id": "cust_79c04c9d",
-    "timestamp": "2026-08-25T09:50:38.781484+05:30",
+    "customer_id": "cust_f1eedba3",
+    "timestamp": "2026-08-25T10:40:37+05:30",
     "recovery_status": "failed"
   },
   {
-    "payment_id": "pay_c1f5468fbc26",
-    "amount": 4777.29,
+    "payment_id": "pay_e256a6dc8f54",
+    "amount": 6770.52,
     "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "authentication_failed",
+    "payment_method": "netbanking",
+    "failure_reason": "risk_check_failed",
+    "retry_count": 3,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-16T18:48:13+05:30",
+        "outcome": "failed",
+        "reason": "risk_check_failed"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-16T21:48:13+05:30",
+        "outcome": "failed",
+        "reason": "risk_check_failed"
+      },
+      {
+        "attempt": 3,
+        "timestamp": "2026-08-17T23:48:13+05:30",
+        "outcome": "failed",
+        "reason": "risk_check_failed"
+      }
+    ],
+    "customer_segment": "new",
+    "customer_id": "cust_9ee3ac2a",
+    "timestamp": "2026-08-16T11:48:13+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_dbccc47709e9",
+    "amount": 1490.05,
+    "currency": "INR",
+    "payment_method": "wallet",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "premium",
+    "customer_id": "cust_d10bd1d0",
+    "timestamp": "2026-08-17T01:42:05+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_a43825b559e4",
+    "amount": 1370.88,
+    "currency": "INR",
+    "payment_method": "wallet",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-21T22:53:22+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "new",
+    "customer_id": "cust_fb2ca025",
+    "timestamp": "2026-08-21T10:53:22+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_82ec9f2dfbf6",
+    "amount": 11868.57,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "regular",
+    "customer_id": "cust_939b462d",
+    "timestamp": "2026-07-29T12:12:18+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_aa0b7b14f2e9",
+    "amount": 2978.55,
+    "currency": "INR",
+    "payment_method": "netbanking",
+    "failure_reason": "insufficient_funds",
     "retry_count": 0,
     "retry_history": [],
     "customer_segment": "churning",
-    "customer_id": "cust_b0b208a7",
-    "timestamp": "2026-08-22T05:18:10.781501+05:30",
-    "recovery_status": "escalated"
+    "customer_id": "cust_505cc686",
+    "timestamp": "2026-08-07T02:24:52+05:30",
+    "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_0b1c86361841",
-    "amount": 1504.86,
+    "payment_id": "pay_ad64b56c610f",
+    "amount": 1678.64,
     "currency": "INR",
     "payment_method": "card",
+    "failure_reason": "bank_server_down",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-10T02:39:31+05:30",
+        "outcome": "failed",
+        "reason": "bank_server_down"
+      }
+    ],
+    "customer_segment": "premium",
+    "customer_id": "cust_9d9262af",
+    "timestamp": "2026-08-09T15:39:31+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_e6b3c944cb32",
+    "amount": 478.4,
+    "currency": "INR",
+    "payment_method": "netbanking",
     "failure_reason": "insufficient_funds",
     "retry_count": 2,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-06T05:52:51.781514+05:30",
+        "timestamp": "2026-08-21T17:40:46+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-21T16:40:46+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "premium",
+    "customer_id": "cust_2b70e525",
+    "timestamp": "2026-08-21T14:40:46+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_d98868dd9c7c",
+    "amount": 721.36,
+    "currency": "INR",
+    "payment_method": "wallet",
+    "failure_reason": "network_timeout",
+    "retry_count": 3,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-07T13:02:12+05:30",
         "outcome": "timeout",
         "reason": "network_timeout"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-06T05:52:51.781514+05:30",
+        "timestamp": "2026-08-07T19:02:12+05:30",
+        "outcome": "failed",
+        "reason": "network_timeout"
+      },
+      {
+        "attempt": 3,
+        "timestamp": "2026-08-08T23:02:12+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
+      }
+    ],
+    "customer_segment": "premium",
+    "customer_id": "cust_6a18ce4c",
+    "timestamp": "2026-08-07T11:02:12+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_eadf50853fcb",
+    "amount": 46199.91,
+    "currency": "INR",
+    "payment_method": "wallet",
+    "failure_reason": "network_timeout",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-09T21:02:28+05:30",
         "outcome": "timeout",
         "reason": "network_timeout"
       }
     ],
     "customer_segment": "churning",
-    "customer_id": "cust_9a68f2e7",
-    "timestamp": "2026-08-06T03:52:51.781514+05:30",
-    "recovery_status": "failed"
+    "customer_id": "cust_222282e1",
+    "timestamp": "2026-08-09T12:02:28+05:30",
+    "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_03509e45e5f6",
-    "amount": 7275.95,
+    "payment_id": "pay_dc8aee30be60",
+    "amount": 2823.79,
     "currency": "INR",
     "payment_method": "upi",
-    "failure_reason": "payment_cancelled",
+    "failure_reason": "network_timeout",
     "retry_count": 0,
     "retry_history": [],
-    "customer_segment": "regular",
-    "customer_id": "cust_45d28745",
-    "timestamp": "2026-08-28T13:57:36.781531+05:30",
+    "customer_segment": "premium",
+    "customer_id": "cust_c074718e",
+    "timestamp": "2026-08-26T13:41:45+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_14a0bccb8a47",
+    "amount": 3247.32,
+    "currency": "INR",
+    "payment_method": "netbanking",
+    "failure_reason": "network_timeout",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-23T10:35:03+05:30",
+        "outcome": "failed",
+        "reason": "network_timeout"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-23T18:35:03+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
+      }
+    ],
+    "customer_segment": "new",
+    "customer_id": "cust_620e99d3",
+    "timestamp": "2026-08-22T22:35:03+05:30",
     "recovery_status": "pending"
   },
   {
-    "payment_id": "pay_354167663668",
-    "amount": 1971.72,
+    "payment_id": "pay_5a0cdd7cf157",
+    "amount": 13978.11,
+    "currency": "INR",
+    "payment_method": "wallet",
+    "failure_reason": "payment_cancelled",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-14T11:42:33+05:30",
+        "outcome": "failed",
+        "reason": "payment_cancelled"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_da7b9095",
+    "timestamp": "2026-08-14T04:42:33+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_67814c1fcc53",
+    "amount": 3989.0,
     "currency": "INR",
     "payment_method": "wallet",
     "failure_reason": "payment_cancelled",
@@ -641,391 +685,63 @@
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-12T06:08:54.781543+05:30",
+        "timestamp": "2026-08-26T18:32:52+05:30",
         "outcome": "failed",
         "reason": "payment_cancelled"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-12T21:08:54.781543+05:30",
-        "outcome": "failed",
-        "reason": "payment_cancelled"
+        "timestamp": "2026-08-27T01:32:52+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
       },
       {
         "attempt": 3,
-        "timestamp": "2026-08-12T04:08:54.781543+05:30",
+        "timestamp": "2026-08-27T09:32:52+05:30",
         "outcome": "failed",
         "reason": "payment_cancelled"
       }
     ],
     "customer_segment": "regular",
-    "customer_id": "cust_99117f29",
-    "timestamp": "2026-08-12T01:08:54.781543+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_7c8ad882d7ea",
-    "amount": 19047.6,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "card_expired",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "premium",
-    "customer_id": "cust_2bef7380",
-    "timestamp": "2026-07-31T16:57:45.781560+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_8aada6002987",
-    "amount": 40796.32,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "authentication_failed",
-    "retry_count": 3,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-23T05:42:57.781572+05:30",
-        "outcome": "failed",
-        "reason": "authentication_failed"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-23T21:42:57.781572+05:30",
-        "outcome": "failed",
-        "reason": "authentication_failed"
-      },
-      {
-        "attempt": 3,
-        "timestamp": "2026-08-24T11:42:57.781572+05:30",
-        "outcome": "failed",
-        "reason": "authentication_failed"
-      }
-    ],
-    "customer_segment": "premium",
-    "customer_id": "cust_b9eec957",
-    "timestamp": "2026-08-22T23:42:57.781572+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_985c5d3815b2",
-    "amount": 2575.52,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "network_timeout",
-    "retry_count": 3,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-08T08:26:14.781591+05:30",
-        "outcome": "failed",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-08T12:26:14.781591+05:30",
-        "outcome": "failed",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 3,
-        "timestamp": "2026-08-08T13:26:14.781591+05:30",
-        "outcome": "failed",
-        "reason": "network_timeout"
-      }
-    ],
-    "customer_segment": "regular",
-    "customer_id": "cust_4ab886c1",
-    "timestamp": "2026-08-07T22:26:14.781591+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_875c034b65a5",
-    "amount": 1513.44,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "payment_cancelled",
-    "retry_count": 4,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-13T07:19:04.781609+05:30",
-        "outcome": "failed",
-        "reason": "payment_cancelled"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-13T17:19:04.781609+05:30",
-        "outcome": "failed",
-        "reason": "payment_cancelled"
-      },
-      {
-        "attempt": 3,
-        "timestamp": "2026-08-13T10:19:04.781609+05:30",
-        "outcome": "failed",
-        "reason": "payment_cancelled"
-      },
-      {
-        "attempt": 4,
-        "timestamp": "2026-08-13T03:19:04.781609+05:30",
-        "outcome": "failed",
-        "reason": "payment_cancelled"
-      }
-    ],
-    "customer_segment": "regular",
-    "customer_id": "cust_336cdfae",
-    "timestamp": "2026-08-12T19:19:04.781609+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_00001fa00838",
-    "amount": 1212.7,
-    "currency": "INR",
-    "payment_method": "netbanking",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 3,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-02T18:40:35.781628+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-03T08:40:35.781628+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 3,
-        "timestamp": "2026-08-03T08:40:35.781628+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      }
-    ],
-    "customer_segment": "new",
-    "customer_id": "cust_726a97d2",
-    "timestamp": "2026-08-02T08:40:35.781628+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_59cc239a5da6",
-    "amount": 6065.87,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "network_timeout",
-    "retry_count": 4,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-16T12:58:10.781645+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-16T05:58:10.781645+05:30",
-        "outcome": "failed",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 3,
-        "timestamp": "2026-08-16T09:58:10.781645+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 4,
-        "timestamp": "2026-08-16T15:58:10.781645+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      }
-    ],
-    "customer_segment": "new",
-    "customer_id": "cust_f1c811dc",
-    "timestamp": "2026-08-16T03:58:10.781645+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_04b406024e51",
-    "amount": 11126.52,
-    "currency": "INR",
-    "payment_method": "netbanking",
-    "failure_reason": "risk_check_failed",
-    "retry_count": 3,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-06T02:42:08.781664+05:30",
-        "outcome": "failed",
-        "reason": "risk_check_failed"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-06T18:42:08.781664+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 3,
-        "timestamp": "2026-08-06T18:42:08.781664+05:30",
-        "outcome": "failed",
-        "reason": "risk_check_failed"
-      }
-    ],
-    "customer_segment": "regular",
-    "customer_id": "cust_76dc8ea6",
-    "timestamp": "2026-08-05T18:42:08.781664+05:30",
+    "customer_id": "cust_77a6e17c",
+    "timestamp": "2026-08-26T15:32:52+05:30",
     "recovery_status": "escalated"
   },
   {
-    "payment_id": "pay_1fb9ef3a35c7",
-    "amount": 858.87,
+    "payment_id": "pay_c2dff3355666",
+    "amount": 2156.26,
     "currency": "INR",
-    "payment_method": "netbanking",
-    "failure_reason": "payment_cancelled",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "regular",
-    "customer_id": "cust_1299ae1c",
-    "timestamp": "2026-08-15T08:24:43.781681+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_de8a8ed43958",
-    "amount": 729.21,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "risk_check_failed",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "new",
-    "customer_id": "cust_ba08133b",
-    "timestamp": "2026-08-23T08:43:35.781693+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_05484c69d535",
-    "amount": 14460.62,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "premium",
-    "customer_id": "cust_19789e1a",
-    "timestamp": "2026-08-28T16:45:31.781706+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_1113cc72066e",
-    "amount": 1621.27,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "invalid_card",
-    "retry_count": 1,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-11T20:12:47.781718+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      }
-    ],
-    "customer_segment": "churning",
-    "customer_id": "cust_04a61463",
-    "timestamp": "2026-08-11T15:12:47.781718+05:30",
-    "recovery_status": "escalated"
-  },
-  {
-    "payment_id": "pay_41ad11249c7f",
-    "amount": 4521.52,
-    "currency": "INR",
-    "payment_method": "card",
+    "payment_method": "emandate",
     "failure_reason": "bank_server_down",
     "retry_count": 0,
     "retry_history": [],
     "customer_segment": "premium",
-    "customer_id": "cust_9a7dd319",
-    "timestamp": "2026-07-31T06:30:27.781731+05:30",
+    "customer_id": "cust_c083b73a",
+    "timestamp": "2026-07-30T00:45:19+05:30",
     "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_8fbfc308b5a4",
-    "amount": 257.76,
+    "payment_id": "pay_c1156d6d0a4e",
+    "amount": 476.49,
     "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "authentication_failed",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "new",
-    "customer_id": "cust_e426f1ba",
-    "timestamp": "2026-08-28T02:45:41.781743+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_84c7fd010fe7",
-    "amount": 7522.72,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "payment_cancelled",
+    "payment_method": "wallet",
+    "failure_reason": "network_timeout",
     "retry_count": 1,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-27T02:08:14.781755+05:30",
+        "timestamp": "2026-08-14T23:43:11+05:30",
         "outcome": "failed",
-        "reason": "payment_cancelled"
-      }
-    ],
-    "customer_segment": "regular",
-    "customer_id": "cust_71bee3bc",
-    "timestamp": "2026-08-26T20:08:14.781755+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_cc6c3527fa5a",
-    "amount": 21977.62,
-    "currency": "INR",
-    "payment_method": "netbanking",
-    "failure_reason": "network_timeout",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "premium",
-    "customer_id": "cust_55dfd811",
-    "timestamp": "2026-08-28T16:00:46.781769+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_db9f6c107976",
-    "amount": 6677.89,
-    "currency": "INR",
-    "payment_method": "netbanking",
-    "failure_reason": "authentication_failed",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-09T14:24:54.781781+05:30",
-        "outcome": "failed",
-        "reason": "authentication_failed"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-09T15:24:54.781781+05:30",
-        "outcome": "failed",
-        "reason": "authentication_failed"
+        "reason": "network_timeout"
       }
     ],
     "customer_segment": "new",
-    "customer_id": "cust_c89e7f78",
-    "timestamp": "2026-08-09T11:24:54.781781+05:30",
+    "customer_id": "cust_33094d35",
+    "timestamp": "2026-08-14T13:43:11+05:30",
     "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_9474aa00c30e",
+    "payment_id": "pay_f6f7f0cc29ec",
     "amount": 21941.54,
     "currency": "INR",
     "payment_method": "emandate",
@@ -1033,252 +749,156 @@
     "retry_count": 0,
     "retry_history": [],
     "customer_segment": "churning",
-    "customer_id": "cust_eb680b6e",
-    "timestamp": "2026-08-10T12:16:21.781796+05:30",
+    "customer_id": "cust_0692dc63",
+    "timestamp": "2026-08-10T13:06:20+05:30",
     "recovery_status": "pending"
   },
   {
-    "payment_id": "pay_66a5052a978f",
-    "amount": 10659.33,
+    "payment_id": "pay_d9acd1584d34",
+    "amount": 2206.87,
     "currency": "INR",
     "payment_method": "netbanking",
-    "failure_reason": "bank_server_down",
+    "failure_reason": "authentication_failed",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-09T09:59:06+05:30",
+        "outcome": "failed",
+        "reason": "authentication_failed"
+      }
+    ],
+    "customer_segment": "new",
+    "customer_id": "cust_1efd76e9",
+    "timestamp": "2026-08-09T01:59:06+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_a2b5b4985cb8",
+    "amount": 4758.85,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "insufficient_funds",
     "retry_count": 2,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-28T01:35:34.781808+05:30",
-        "outcome": "failed",
-        "reason": "bank_server_down"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-28T01:35:34.781808+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      }
-    ],
-    "customer_segment": "premium",
-    "customer_id": "cust_8c972f13",
-    "timestamp": "2026-08-27T23:35:34.781808+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_49027342388a",
-    "amount": 12073.09,
-    "currency": "INR",
-    "payment_method": "wallet",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 4,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-16T10:23:28.781828+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-16T21:23:28.781828+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 3,
-        "timestamp": "2026-08-17T17:23:28.781828+05:30",
+        "timestamp": "2026-08-05T06:30:33+05:30",
         "outcome": "failed",
         "reason": "insufficient_funds"
       },
       {
-        "attempt": 4,
-        "timestamp": "2026-08-17T05:23:28.781828+05:30",
+        "attempt": 2,
+        "timestamp": "2026-08-05T08:30:33+05:30",
         "outcome": "failed",
         "reason": "insufficient_funds"
       }
     ],
-    "customer_segment": "churning",
-    "customer_id": "cust_f762eb45",
-    "timestamp": "2026-08-16T05:23:28.781828+05:30",
+    "customer_segment": "regular",
+    "customer_id": "cust_b5122df8",
+    "timestamp": "2026-08-04T20:30:33+05:30",
     "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_da6d873819e7",
-    "amount": 1415.5,
-    "currency": "INR",
-    "payment_method": "wallet",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 3,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-17T04:08:30.781847+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-17T09:08:30.781847+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      },
-      {
-        "attempt": 3,
-        "timestamp": "2026-08-17T16:08:30.781847+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      }
-    ],
-    "customer_segment": "churning",
-    "customer_id": "cust_7c48afbe",
-    "timestamp": "2026-08-17T01:08:30.781847+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_72c9931699c3",
-    "amount": 2573.17,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "network_timeout",
-    "retry_count": 1,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-21T15:43:30.781864+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      }
-    ],
-    "customer_segment": "churning",
-    "customer_id": "cust_d98777ae",
-    "timestamp": "2026-08-21T11:43:30.781864+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_ae46f57d84ac",
-    "amount": 1537.68,
+    "payment_id": "pay_4767d76c162f",
+    "amount": 6818.4,
     "currency": "INR",
     "payment_method": "card",
-    "failure_reason": "bank_server_down",
-    "retry_count": 1,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-19T22:32:38.781878+05:30",
-        "outcome": "failed",
-        "reason": "bank_server_down"
-      }
-    ],
-    "customer_segment": "premium",
-    "customer_id": "cust_82e9c146",
-    "timestamp": "2026-08-19T13:32:38.781878+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_6fe72116a98b",
-    "amount": 877.11,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "network_timeout",
+    "failure_reason": "authentication_failed",
     "retry_count": 0,
     "retry_history": [],
     "customer_segment": "regular",
-    "customer_id": "cust_d19be3c0",
-    "timestamp": "2026-08-25T11:57:41.781891+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_be1af62b57ce",
-    "amount": 1586.88,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "invalid_card",
-    "retry_count": 4,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-04T22:31:43.781903+05:30",
-        "outcome": "failed",
-        "reason": "invalid_card"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-05T02:31:43.781903+05:30",
-        "outcome": "failed",
-        "reason": "invalid_card"
-      },
-      {
-        "attempt": 3,
-        "timestamp": "2026-08-05T03:31:43.781903+05:30",
-        "outcome": "failed",
-        "reason": "invalid_card"
-      },
-      {
-        "attempt": 4,
-        "timestamp": "2026-08-04T22:31:43.781903+05:30",
-        "outcome": "failed",
-        "reason": "invalid_card"
-      }
-    ],
-    "customer_segment": "new",
-    "customer_id": "cust_46714ff2",
-    "timestamp": "2026-08-04T18:31:43.781903+05:30",
+    "customer_id": "cust_c01f36bf",
+    "timestamp": "2026-08-23T00:08:44+05:30",
     "recovery_status": "pending"
   },
   {
-    "payment_id": "pay_130c3c4d17a2",
-    "amount": 440.81,
+    "payment_id": "pay_e14eb70db380",
+    "amount": 11906.09,
     "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "upi_pin_not_set",
-    "retry_count": 1,
+    "payment_method": "emandate",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 2,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-14T15:15:01.781922+05:30",
+        "timestamp": "2026-08-08T15:28:32+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-08T21:28:32+05:30",
         "outcome": "timeout",
         "reason": "network_timeout"
       }
     ],
-    "customer_segment": "regular",
-    "customer_id": "cust_4da3bc5d",
-    "timestamp": "2026-08-14T07:15:01.781922+05:30",
+    "customer_segment": "premium",
+    "customer_id": "cust_8441aefd",
+    "timestamp": "2026-08-08T13:28:32+05:30",
     "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_274d065bf5e7",
-    "amount": 1733.17,
+    "payment_id": "pay_a9f948b24e63",
+    "amount": 2812.75,
     "currency": "INR",
     "payment_method": "card",
-    "failure_reason": "insufficient_funds",
+    "failure_reason": "bank_server_down",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "premium",
+    "customer_id": "cust_8db06746",
+    "timestamp": "2026-08-21T04:52:14+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_f36cb62b892e",
+    "amount": 2849.0,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "authentication_failed",
     "retry_count": 1,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-16T21:05:25.781936+05:30",
+        "timestamp": "2026-08-26T10:41:46+05:30",
         "outcome": "failed",
-        "reason": "insufficient_funds"
+        "reason": "authentication_failed"
       }
     ],
-    "customer_segment": "new",
-    "customer_id": "cust_935b5340",
-    "timestamp": "2026-08-16T20:05:25.781936+05:30",
+    "customer_segment": "premium",
+    "customer_id": "cust_3108d448",
+    "timestamp": "2026-08-26T05:41:46+05:30",
     "recovery_status": "escalated"
   },
   {
-    "payment_id": "pay_1b0d721bc1f5",
-    "amount": 394.0,
+    "payment_id": "pay_4639447b2067",
+    "amount": 55.52,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "upi_pin_not_set",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "regular",
+    "customer_id": "cust_8da8eee4",
+    "timestamp": "2026-08-19T20:29:32+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_f0e98b3b40a2",
+    "amount": 415.01,
     "currency": "INR",
     "payment_method": "upi",
     "failure_reason": "authentication_failed",
     "retry_count": 0,
     "retry_history": [],
     "customer_segment": "regular",
-    "customer_id": "cust_05fbf852",
-    "timestamp": "2026-08-09T15:19:22.781950+05:30",
-    "recovery_status": "escalated"
+    "customer_id": "cust_d2762bdc",
+    "timestamp": "2026-07-30T02:54:45+05:30",
+    "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_8c0a51f21b3c",
+    "payment_id": "pay_989bc4da9b37",
     "amount": 25688.31,
     "currency": "INR",
     "payment_method": "card",
@@ -1286,240 +906,149 @@
     "retry_count": 0,
     "retry_history": [],
     "customer_segment": "regular",
-    "customer_id": "cust_c494efaa",
-    "timestamp": "2026-08-10T09:30:14.781962+05:30",
+    "customer_id": "cust_c693da11",
+    "timestamp": "2026-08-10T10:20:13+05:30",
     "recovery_status": "failed"
   },
   {
-    "payment_id": "pay_3483a5b8f3ef",
-    "amount": 1327.99,
+    "payment_id": "pay_3605bf54a021",
+    "amount": 3409.74,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "authentication_failed",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "new",
+    "customer_id": "cust_2834e4c0",
+    "timestamp": "2026-08-28T04:41:15+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_aff8754d1238",
+    "amount": 151.16,
     "currency": "INR",
     "payment_method": "netbanking",
     "failure_reason": "authentication_failed",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-24T18:43:33.781974+05:30",
-        "outcome": "failed",
-        "reason": "authentication_failed"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-24T12:43:33.781974+05:30",
-        "outcome": "failed",
-        "reason": "authentication_failed"
-      }
-    ],
-    "customer_segment": "regular",
-    "customer_id": "cust_b97f6b22",
-    "timestamp": "2026-08-24T10:43:33.781974+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_e528d36fcff0",
-    "amount": 896.83,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "bank_server_down",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-03T18:32:19.781989+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-03T18:32:19.781989+05:30",
-        "outcome": "failed",
-        "reason": "bank_server_down"
-      }
-    ],
-    "customer_segment": "churning",
-    "customer_id": "cust_71c18829",
-    "timestamp": "2026-08-03T14:32:19.781989+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_d0cd7402acd4",
-    "amount": 188.43,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "payment_cancelled",
-    "retry_count": 1,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-06T00:11:43.782004+05:30",
-        "outcome": "failed",
-        "reason": "payment_cancelled"
-      }
-    ],
-    "customer_segment": "premium",
-    "customer_id": "cust_fccf88a4",
-    "timestamp": "2026-08-05T16:11:43.782004+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_e7a198669c10",
-    "amount": 67.94,
-    "currency": "INR",
-    "payment_method": "netbanking",
-    "failure_reason": "risk_check_failed",
     "retry_count": 0,
     "retry_history": [],
-    "customer_segment": "regular",
-    "customer_id": "cust_23d4d411",
-    "timestamp": "2026-08-15T11:49:23.782017+05:30",
-    "recovery_status": "recovered"
+    "customer_segment": "premium",
+    "customer_id": "cust_c9af18f8",
+    "timestamp": "2026-08-25T03:07:51+05:30",
+    "recovery_status": "pending"
   },
   {
-    "payment_id": "pay_075631524a02",
-    "amount": 49985.03,
+    "payment_id": "pay_9854ce4e4ebf",
+    "amount": 32516.53,
     "currency": "INR",
     "payment_method": "upi",
-    "failure_reason": "upi_pin_not_set",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-08T05:33:59.782029+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-08T20:33:59.782029+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      }
-    ],
-    "customer_segment": "premium",
-    "customer_id": "cust_0e4bdca1",
-    "timestamp": "2026-08-08T02:33:59.782029+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_43cee4009b20",
-    "amount": 636.86,
-    "currency": "INR",
-    "payment_method": "wallet",
     "failure_reason": "insufficient_funds",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "premium",
+    "customer_id": "cust_ebd34616",
+    "timestamp": "2026-08-13T21:54:22+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_9a8cfa3c5283",
+    "amount": 38529.86,
+    "currency": "INR",
+    "payment_method": "emandate",
+    "failure_reason": "network_timeout",
     "retry_count": 2,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-18T00:48:41.782046+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
+        "timestamp": "2026-08-21T01:57:12+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-18T11:48:41.782046+05:30",
-        "outcome": "timeout",
+        "timestamp": "2026-08-21T03:57:12+05:30",
+        "outcome": "failed",
         "reason": "network_timeout"
       }
     ],
     "customer_segment": "regular",
-    "customer_id": "cust_685a7be7",
-    "timestamp": "2026-08-17T21:48:41.782046+05:30",
-    "recovery_status": "recovered"
+    "customer_id": "cust_3a9aca5e",
+    "timestamp": "2026-08-20T17:57:12+05:30",
+    "recovery_status": "escalated"
   },
   {
-    "payment_id": "pay_239ab8e73e8e",
-    "amount": 971.78,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "upi_pin_not_set",
-    "retry_count": 3,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-19T08:20:36.782063+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-19T21:20:36.782063+05:30",
-        "outcome": "failed",
-        "reason": "upi_pin_not_set"
-      },
-      {
-        "attempt": 3,
-        "timestamp": "2026-08-19T19:20:36.782063+05:30",
-        "outcome": "failed",
-        "reason": "upi_pin_not_set"
-      }
-    ],
-    "customer_segment": "premium",
-    "customer_id": "cust_eccf0f99",
-    "timestamp": "2026-08-19T07:20:36.782063+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_1caea22d12e5",
-    "amount": 696.52,
+    "payment_id": "pay_a28140446f96",
+    "amount": 235.24,
     "currency": "INR",
     "payment_method": "card",
     "failure_reason": "bank_server_down",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-14T11:17:35+05:30",
+        "outcome": "failed",
+        "reason": "bank_server_down"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-14T18:17:35+05:30",
+        "outcome": "failed",
+        "reason": "bank_server_down"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_175ba98d",
+    "timestamp": "2026-08-14T02:17:35+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_1dad09b252c2",
+    "amount": 781.37,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "risk_check_failed",
     "retry_count": 1,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-19T21:13:17.782080+05:30",
+        "timestamp": "2026-08-17T17:11:29+05:30",
         "outcome": "failed",
-        "reason": "bank_server_down"
+        "reason": "risk_check_failed"
       }
     ],
-    "customer_segment": "regular",
-    "customer_id": "cust_a4c2b951",
-    "timestamp": "2026-08-19T20:13:17.782080+05:30",
+    "customer_segment": "premium",
+    "customer_id": "cust_dd6ac7b8",
+    "timestamp": "2026-08-17T16:11:29+05:30",
     "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_f8544bdae13e",
-    "amount": 1762.11,
-    "currency": "INR",
-    "payment_method": "netbanking",
-    "failure_reason": "bank_server_down",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-26T05:02:20.782094+05:30",
-        "outcome": "failed",
-        "reason": "bank_server_down"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-26T15:02:20.782094+05:30",
-        "outcome": "failed",
-        "reason": "bank_server_down"
-      }
-    ],
-    "customer_segment": "new",
-    "customer_id": "cust_7c99c60f",
-    "timestamp": "2026-08-25T21:02:20.782094+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_204660606b8d",
-    "amount": 135.77,
+    "payment_id": "pay_ed7bf656218a",
+    "amount": 2932.25,
     "currency": "INR",
     "payment_method": "card",
-    "failure_reason": "bank_server_down",
+    "failure_reason": "insufficient_funds",
     "retry_count": 0,
     "retry_history": [],
     "customer_segment": "regular",
-    "customer_id": "cust_b8f4e0fa",
-    "timestamp": "2026-08-09T18:22:05.782110+05:30",
-    "recovery_status": "recovered"
+    "customer_id": "cust_b2c08394",
+    "timestamp": "2026-08-28T18:33:55+05:30",
+    "recovery_status": "failed"
   },
   {
-    "payment_id": "pay_d82c8880cce0",
+    "payment_id": "pay_762172ed1d0b",
+    "amount": 1223.75,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "upi_pin_not_set",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "regular",
+    "customer_id": "cust_d50755d9",
+    "timestamp": "2026-08-14T04:30:25+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_821c13369970",
     "amount": 7671.73,
     "currency": "INR",
     "payment_method": "upi",
@@ -1528,228 +1057,117 @@
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-29T11:23:42.782123+05:30",
+        "timestamp": "2026-08-29T12:13:41+05:30",
         "outcome": "timeout",
         "reason": "network_timeout"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-29T07:23:42.782123+05:30",
+        "timestamp": "2026-08-29T08:13:41+05:30",
         "outcome": "timeout",
         "reason": "network_timeout"
       }
     ],
     "customer_segment": "churning",
-    "customer_id": "cust_a95651fe",
-    "timestamp": "2026-08-29T01:23:42.782123+05:30",
+    "customer_id": "cust_dd30de89",
+    "timestamp": "2026-08-29T02:13:41+05:30",
     "recovery_status": "pending"
   },
   {
-    "payment_id": "pay_88ff3799f645",
-    "amount": 982.67,
+    "payment_id": "pay_551ac8ea585a",
+    "amount": 2700.69,
     "currency": "INR",
     "payment_method": "card",
     "failure_reason": "card_expired",
-    "retry_count": 1,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-22T19:54:25.782138+05:30",
-        "outcome": "failed",
-        "reason": "card_expired"
-      }
-    ],
-    "customer_segment": "regular",
-    "customer_id": "cust_cf51e36e",
-    "timestamp": "2026-08-22T12:54:25.782138+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_b6af684d285f",
-    "amount": 42733.78,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "authentication_failed",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "churning",
-    "customer_id": "cust_514573fb",
-    "timestamp": "2026-08-09T06:38:59.782152+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_461ddaee2dd2",
-    "amount": 459.7,
-    "currency": "INR",
-    "payment_method": "emandate",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 3,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-28T15:00:35.782164+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-29T04:00:35.782164+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      },
-      {
-        "attempt": 3,
-        "timestamp": "2026-08-29T06:00:35.782164+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      }
-    ],
-    "customer_segment": "new",
-    "customer_id": "cust_e5c06a91",
-    "timestamp": "2026-08-28T12:00:35.782164+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_005f03c23cf4",
-    "amount": 974.99,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "payment_cancelled",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "churning",
-    "customer_id": "cust_5246a888",
-    "timestamp": "2026-08-06T19:14:27.782181+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_46624fd01cf7",
-    "amount": 3301.91,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "network_timeout",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "churning",
-    "customer_id": "cust_e12293b6",
-    "timestamp": "2026-08-25T14:24:06.782193+05:30",
-    "recovery_status": "escalated"
-  },
-  {
-    "payment_id": "pay_147674b25063",
-    "amount": 211.31,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "bank_server_down",
-    "retry_count": 1,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-16T17:54:28.782205+05:30",
-        "outcome": "failed",
-        "reason": "bank_server_down"
-      }
-    ],
-    "customer_segment": "new",
-    "customer_id": "cust_c4f917cb",
-    "timestamp": "2026-08-16T06:54:28.782205+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_413199a1b264",
-    "amount": 1869.24,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "churning",
-    "customer_id": "cust_edba2578",
-    "timestamp": "2026-08-25T03:40:21.782219+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_0198d3aae1e6",
-    "amount": 2473.93,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 1,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-15T06:32:42.782231+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      }
-    ],
-    "customer_segment": "premium",
-    "customer_id": "cust_766ccdf2",
-    "timestamp": "2026-08-14T23:32:42.782231+05:30",
-    "recovery_status": "escalated"
-  },
-  {
-    "payment_id": "pay_4a1494f40174",
-    "amount": 221.61,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "card_expired",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "churning",
-    "customer_id": "cust_4239e441",
-    "timestamp": "2026-08-17T16:51:17.782244+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_52bfec0efb05",
-    "amount": 4234.01,
-    "currency": "INR",
-    "payment_method": "emandate",
-    "failure_reason": "bank_server_down",
     "retry_count": 2,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-27T20:22:30.782256+05:30",
-        "outcome": "failed",
-        "reason": "bank_server_down"
+        "timestamp": "2026-08-05T10:57:40+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-28T11:22:30.782256+05:30",
+        "timestamp": "2026-08-05T12:57:40+05:30",
         "outcome": "failed",
-        "reason": "bank_server_down"
+        "reason": "card_expired"
       }
     ],
-    "customer_segment": "regular",
-    "customer_id": "cust_c9d26c48",
-    "timestamp": "2026-08-27T15:22:30.782256+05:30",
+    "customer_segment": "new",
+    "customer_id": "cust_6090d697",
+    "timestamp": "2026-08-04T22:57:40+05:30",
     "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_346127f28809",
-    "amount": 11808.55,
+    "payment_id": "pay_2051acef097a",
+    "amount": 1583.67,
     "currency": "INR",
-    "payment_method": "upi",
+    "payment_method": "wallet",
+    "failure_reason": "payment_cancelled",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-15T20:50:56+05:30",
+        "outcome": "failed",
+        "reason": "payment_cancelled"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_54fd9ad3",
+    "timestamp": "2026-08-15T15:50:56+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_a65bb1f265c1",
+    "amount": 9879.47,
+    "currency": "INR",
+    "payment_method": "netbanking",
+    "failure_reason": "authentication_failed",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "churning",
+    "customer_id": "cust_da330aa1",
+    "timestamp": "2026-08-12T10:20:56+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_ff574e2b4991",
+    "amount": 184.76,
+    "currency": "INR",
+    "payment_method": "emandate",
+    "failure_reason": "network_timeout",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "premium",
+    "customer_id": "cust_6f18c108",
+    "timestamp": "2026-08-29T10:39:10+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_25440fe06e41",
+    "amount": 1524.7,
+    "currency": "INR",
+    "payment_method": "netbanking",
     "failure_reason": "insufficient_funds",
     "retry_count": 1,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-24T16:03:04.782271+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
+        "timestamp": "2026-08-13T22:50:46+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
       }
     ],
-    "customer_segment": "regular",
-    "customer_id": "cust_0f386f8a",
-    "timestamp": "2026-08-24T15:03:04.782271+05:30",
-    "recovery_status": "failed"
+    "customer_segment": "new",
+    "customer_id": "cust_90e0a95b",
+    "timestamp": "2026-08-13T17:50:46+05:30",
+    "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_7e87ffaabc9c",
-    "amount": 26435.17,
+    "payment_id": "pay_e61ede900267",
+    "amount": 3916.82,
     "currency": "INR",
     "payment_method": "netbanking",
     "failure_reason": "insufficient_funds",
@@ -1757,75 +1175,122 @@
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-16T11:57:53.782285+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
+        "timestamp": "2026-08-15T17:43:31+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-16T11:57:53.782285+05:30",
+        "timestamp": "2026-08-16T05:43:31+05:30",
         "outcome": "failed",
         "reason": "insufficient_funds"
       }
     ],
     "customer_segment": "regular",
-    "customer_id": "cust_1065f37e",
-    "timestamp": "2026-08-16T05:57:53.782285+05:30",
+    "customer_id": "cust_49a23a89",
+    "timestamp": "2026-08-15T13:43:31+05:30",
     "recovery_status": "pending"
   },
   {
-    "payment_id": "pay_6f07dd8c1eb0",
-    "amount": 13042.33,
+    "payment_id": "pay_5be4bf519269",
+    "amount": 4057.4,
     "currency": "INR",
-    "payment_method": "wallet",
-    "failure_reason": "payment_cancelled",
-    "retry_count": 4,
+    "payment_method": "upi",
+    "failure_reason": "upi_pin_not_set",
+    "retry_count": 2,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-15T20:00:13.782301+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
+        "timestamp": "2026-08-06T15:01:22+05:30",
+        "outcome": "failed",
+        "reason": "upi_pin_not_set"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-16T03:00:13.782301+05:30",
+        "timestamp": "2026-08-07T06:01:22+05:30",
+        "outcome": "failed",
+        "reason": "upi_pin_not_set"
+      }
+    ],
+    "customer_segment": "premium",
+    "customer_id": "cust_b303f438",
+    "timestamp": "2026-08-06T10:01:22+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_9ef2b93e30ac",
+    "amount": 2118.27,
+    "currency": "INR",
+    "payment_method": "netbanking",
+    "failure_reason": "network_timeout",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-04T00:57:23+05:30",
+        "outcome": "failed",
+        "reason": "network_timeout"
+      }
+    ],
+    "customer_segment": "new",
+    "customer_id": "cust_b88ec318",
+    "timestamp": "2026-08-03T21:57:23+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_bf5ae7e653a3",
+    "amount": 746.82,
+    "currency": "INR",
+    "payment_method": "netbanking",
+    "failure_reason": "payment_cancelled",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-07-31T02:08:42+05:30",
         "outcome": "failed",
         "reason": "payment_cancelled"
       },
       {
-        "attempt": 3,
-        "timestamp": "2026-08-15T15:00:13.782301+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 4,
-        "timestamp": "2026-08-15T13:00:13.782301+05:30",
+        "attempt": 2,
+        "timestamp": "2026-07-31T12:08:42+05:30",
         "outcome": "failed",
         "reason": "payment_cancelled"
       }
     ],
-    "customer_segment": "churning",
-    "customer_id": "cust_bb4c99b9",
-    "timestamp": "2026-08-15T09:00:13.782301+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_a3ab115b66f4",
-    "amount": 4467.25,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "bank_server_down",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "premium",
-    "customer_id": "cust_6818a2d5",
-    "timestamp": "2026-07-30T00:03:18.782320+05:30",
+    "customer_segment": "regular",
+    "customer_id": "cust_21d53971",
+    "timestamp": "2026-07-30T20:08:42+05:30",
     "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_62212bb9ef08",
+    "payment_id": "pay_39c1e262f76c",
+    "amount": 5139.19,
+    "currency": "INR",
+    "payment_method": "emandate",
+    "failure_reason": "emandate_debit_failed",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-12T19:30:37+05:30",
+        "outcome": "failed",
+        "reason": "emandate_debit_failed"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-13T04:30:37+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
+      }
+    ],
+    "customer_segment": "premium",
+    "customer_id": "cust_aca5e2fd",
+    "timestamp": "2026-08-12T08:30:37+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_5f18e583f0b6",
     "amount": 594.83,
     "currency": "INR",
     "payment_method": "upi",
@@ -1833,13 +1298,13 @@
     "retry_count": 0,
     "retry_history": [],
     "customer_segment": "regular",
-    "customer_id": "cust_267b5956",
-    "timestamp": "2026-08-02T20:11:17.782332+05:30",
+    "customer_id": "cust_78b2b549",
+    "timestamp": "2026-08-02T21:01:16+05:30",
     "recovery_status": "escalated"
   },
   {
-    "payment_id": "pay_82d49bad5203",
-    "amount": 645.79,
+    "payment_id": "pay_0b9bd93423c8",
+    "amount": 1505.73,
     "currency": "INR",
     "payment_method": "card",
     "failure_reason": "insufficient_funds",
@@ -1847,409 +1312,326 @@
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-01T05:01:37.782343+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
+        "timestamp": "2026-08-06T01:25:34+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
       }
     ],
     "customer_segment": "churning",
-    "customer_id": "cust_71267492",
-    "timestamp": "2026-07-31T18:01:37.782343+05:30",
+    "customer_id": "cust_fef518a6",
+    "timestamp": "2026-08-05T13:25:34+05:30",
     "recovery_status": "pending"
   },
   {
-    "payment_id": "pay_101a7b97e3c0",
-    "amount": 11156.52,
+    "payment_id": "pay_19597b5aa7a8",
+    "amount": 854.17,
     "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "network_timeout",
+    "payment_method": "emandate",
+    "failure_reason": "insufficient_funds",
     "retry_count": 1,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-07-30T11:07:17.782357+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
+        "timestamp": "2026-08-18T19:16:37+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
       }
     ],
-    "customer_segment": "churning",
-    "customer_id": "cust_777acb39",
-    "timestamp": "2026-07-30T03:07:17.782357+05:30",
-    "recovery_status": "recovered"
+    "customer_segment": "premium",
+    "customer_id": "cust_687a4850",
+    "timestamp": "2026-08-18T08:16:37+05:30",
+    "recovery_status": "pending"
   },
   {
-    "payment_id": "pay_933a317362c9",
-    "amount": 4933.53,
-    "currency": "INR",
-    "payment_method": "emandate",
-    "failure_reason": "network_timeout",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "new",
-    "customer_id": "cust_d9cb6d02",
-    "timestamp": "2026-08-18T09:44:44.782371+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_736f71699a34",
-    "amount": 3791.44,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "risk_check_failed",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "regular",
-    "customer_id": "cust_0b8e604e",
-    "timestamp": "2026-08-29T09:19:40.782382+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_ca746fc7e467",
-    "amount": 823.93,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "authentication_failed",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "new",
-    "customer_id": "cust_b6ed06a0",
-    "timestamp": "2026-08-02T03:48:12.782394+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_f9de1bef244a",
-    "amount": 162.79,
+    "payment_id": "pay_30974b2b46a0",
+    "amount": 16770.25,
     "currency": "INR",
     "payment_method": "wallet",
     "failure_reason": "insufficient_funds",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "churning",
-    "customer_id": "cust_3223323e",
-    "timestamp": "2026-08-24T07:27:06.782405+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_c3ac55c57be9",
-    "amount": 73.58,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "payment_cancelled",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-06T05:36:54.782417+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-06T09:36:54.782417+05:30",
-        "outcome": "failed",
-        "reason": "payment_cancelled"
-      }
-    ],
-    "customer_segment": "new",
-    "customer_id": "cust_f1ec6cb6",
-    "timestamp": "2026-08-05T21:36:54.782417+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_482c07760a1f",
-    "amount": 38061.61,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "regular",
-    "customer_id": "cust_3a1d472e",
-    "timestamp": "2026-08-19T20:29:00.782433+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_ef235b78049f",
-    "amount": 17572.18,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "bank_server_down",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "premium",
-    "customer_id": "cust_37d3cccd",
-    "timestamp": "2026-08-27T00:31:52.782445+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_a8a8007e49a7",
-    "amount": 33569.49,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "network_timeout",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "regular",
-    "customer_id": "cust_2d9abd44",
-    "timestamp": "2026-08-14T18:31:34.782457+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_5bebc0bd952b",
-    "amount": 2645.07,
-    "currency": "INR",
-    "payment_method": "netbanking",
-    "failure_reason": "payment_cancelled",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-15T10:43:40.782468+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-16T03:43:40.782468+05:30",
-        "outcome": "failed",
-        "reason": "payment_cancelled"
-      }
-    ],
-    "customer_segment": "premium",
-    "customer_id": "cust_ec01171a",
-    "timestamp": "2026-08-15T03:43:40.782468+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_c34ddd2b1124",
-    "amount": 3422.8,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "bank_server_down",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "regular",
-    "customer_id": "cust_d2725796",
-    "timestamp": "2026-08-27T09:04:34.782483+05:30",
-    "recovery_status": "escalated"
-  },
-  {
-    "payment_id": "pay_13dc63fc869a",
-    "amount": 2988.94,
-    "currency": "INR",
-    "payment_method": "netbanking",
-    "failure_reason": "payment_cancelled",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-26T04:47:06.782495+05:30",
-        "outcome": "failed",
-        "reason": "payment_cancelled"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-26T07:47:06.782495+05:30",
-        "outcome": "failed",
-        "reason": "payment_cancelled"
-      }
-    ],
-    "customer_segment": "regular",
-    "customer_id": "cust_2a7c4f75",
-    "timestamp": "2026-08-25T21:47:06.782495+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_2c51becb8b7b",
-    "amount": 662.33,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "authentication_failed",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-02T03:46:54.782510+05:30",
-        "outcome": "failed",
-        "reason": "authentication_failed"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-02T07:46:54.782510+05:30",
-        "outcome": "failed",
-        "reason": "authentication_failed"
-      }
-    ],
-    "customer_segment": "new",
-    "customer_id": "cust_036732ee",
-    "timestamp": "2026-08-01T17:46:54.782510+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_a46fb097abe0",
-    "amount": 1643.61,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "network_timeout",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "premium",
-    "customer_id": "cust_9cee1fe6",
-    "timestamp": "2026-07-31T00:48:01.782526+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_0ebbe41397d3",
-    "amount": 18211.52,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "network_timeout",
     "retry_count": 1,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-13T07:45:35.782538+05:30",
+        "timestamp": "2026-08-19T06:51:10+05:30",
         "outcome": "failed",
-        "reason": "network_timeout"
+        "reason": "insufficient_funds"
       }
     ],
     "customer_segment": "new",
-    "customer_id": "cust_f1d22af0",
-    "timestamp": "2026-08-13T04:45:35.782538+05:30",
-    "recovery_status": "failed"
-  },
-  {
-    "payment_id": "pay_0ff9428f6691",
-    "amount": 6555.8,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "bank_server_down",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "churning",
-    "customer_id": "cust_4e4a5bc9",
-    "timestamp": "2026-08-04T16:06:18.782552+05:30",
+    "customer_id": "cust_d918b3e5",
+    "timestamp": "2026-08-19T04:51:10+05:30",
     "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_feb98058d6e9",
-    "amount": 1268.52,
+    "payment_id": "pay_dea45c19d024",
+    "amount": 33907.54,
     "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "bank_server_down",
-    "retry_count": 2,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-18T08:02:43.782569+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
-      },
-      {
-        "attempt": 2,
-        "timestamp": "2026-08-18T16:02:43.782569+05:30",
-        "outcome": "failed",
-        "reason": "bank_server_down"
-      }
-    ],
-    "customer_segment": "regular",
-    "customer_id": "cust_fdb59a35",
-    "timestamp": "2026-08-17T22:02:43.782569+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_11b32a4bbfd8",
-    "amount": 816.85,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "bank_server_down",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "regular",
-    "customer_id": "cust_df837108",
-    "timestamp": "2026-08-25T02:51:41.782585+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_0f27f917d5d2",
-    "amount": 1338.09,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "bank_server_down",
+    "payment_method": "netbanking",
+    "failure_reason": "authentication_failed",
     "retry_count": 3,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-08T01:05:36.782596+05:30",
+        "timestamp": "2026-08-04T09:52:18+05:30",
+        "outcome": "failed",
+        "reason": "authentication_failed"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-04T18:52:18+05:30",
+        "outcome": "failed",
+        "reason": "authentication_failed"
+      },
+      {
+        "attempt": 3,
+        "timestamp": "2026-08-05T12:52:18+05:30",
+        "outcome": "failed",
+        "reason": "authentication_failed"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_25c61c45",
+    "timestamp": "2026-08-04T06:52:18+05:30",
+    "recovery_status": "escalated"
+  },
+  {
+    "payment_id": "pay_0d6a05b343ef",
+    "amount": 3356.02,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-22T03:57:14+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-22T08:57:14+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_86ad8a8c",
+    "timestamp": "2026-08-21T16:57:14+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_d8e88ebb7a9e",
+    "amount": 2197.05,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "payment_cancelled",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-20T22:19:23+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
+      }
+    ],
+    "customer_segment": "new",
+    "customer_id": "cust_1ba362e7",
+    "timestamp": "2026-08-20T16:19:23+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_4b7e6b3c87d2",
+    "amount": 12208.4,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "network_timeout",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "churning",
+    "customer_id": "cust_6e218b09",
+    "timestamp": "2026-08-22T22:31:04+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_66132e697418",
+    "amount": 17349.67,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "network_timeout",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "regular",
+    "customer_id": "cust_50032b35",
+    "timestamp": "2026-08-03T09:54:33+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_214f3f12cfd0",
+    "amount": 4250.85,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "card_expired",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-01T18:56:42+05:30",
+        "outcome": "failed",
+        "reason": "card_expired"
+      }
+    ],
+    "customer_segment": "new",
+    "customer_id": "cust_f4e559e5",
+    "timestamp": "2026-08-01T12:56:42+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_279c658a3676",
+    "amount": 4421.66,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "risk_check_failed",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-02T05:10:08+05:30",
+        "outcome": "failed",
+        "reason": "risk_check_failed"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_d8e7012f",
+    "timestamp": "2026-08-01T18:10:08+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_d4578ad9a867",
+    "amount": 114.46,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "payment_cancelled",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-08T00:55:51+05:30",
+        "outcome": "failed",
+        "reason": "payment_cancelled"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-08T23:55:51+05:30",
+        "outcome": "failed",
+        "reason": "payment_cancelled"
+      }
+    ],
+    "customer_segment": "churning",
+    "customer_id": "cust_2e2fbf77",
+    "timestamp": "2026-08-07T23:55:51+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_5744f5967422",
+    "amount": 389.5,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "upi_pin_not_set",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-27T21:54:43+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_b8ba8368",
+    "timestamp": "2026-08-27T14:54:43+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_45ee432d6a07",
+    "amount": 2925.26,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "premium",
+    "customer_id": "cust_1d2324e6",
+    "timestamp": "2026-08-21T23:21:57+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_c47104c03613",
+    "amount": 1555.51,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-12T20:06:18+05:30",
         "outcome": "timeout",
         "reason": "network_timeout"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-08T02:05:36.782596+05:30",
-        "outcome": "timeout",
-        "reason": "network_timeout"
+        "timestamp": "2026-08-13T18:06:18+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "premium",
+    "customer_id": "cust_4a193501",
+    "timestamp": "2026-08-12T18:06:18+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_ebd14d2c75b2",
+    "amount": 1949.3,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "bank_server_down",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-23T22:30:07+05:30",
+        "outcome": "failed",
+        "reason": "bank_server_down"
       },
       {
-        "attempt": 3,
-        "timestamp": "2026-08-08T06:05:36.782596+05:30",
+        "attempt": 2,
+        "timestamp": "2026-08-24T06:30:07+05:30",
         "outcome": "failed",
         "reason": "bank_server_down"
       }
     ],
-    "customer_segment": "new",
-    "customer_id": "cust_d2e3dbde",
-    "timestamp": "2026-08-08T00:05:36.782596+05:30",
+    "customer_segment": "regular",
+    "customer_id": "cust_9364f3d0",
+    "timestamp": "2026-08-23T16:30:07+05:30",
     "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_1d5d7a4be100",
-    "amount": 59.39,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "authentication_failed",
-    "retry_count": 1,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-19T17:18:22.782613+05:30",
-        "outcome": "failed",
-        "reason": "authentication_failed"
-      }
-    ],
-    "customer_segment": "premium",
-    "customer_id": "cust_51e39727",
-    "timestamp": "2026-08-19T05:18:22.782613+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_338520a91902",
-    "amount": 3187.3,
+    "payment_id": "pay_6683e10796c0",
+    "amount": 2342.08,
     "currency": "INR",
     "payment_method": "upi",
-    "failure_reason": "risk_check_failed",
+    "failure_reason": "bank_server_down",
     "retry_count": 0,
     "retry_history": [],
-    "customer_segment": "new",
-    "customer_id": "cust_7dd12158",
-    "timestamp": "2026-08-19T11:48:47.782629+05:30",
+    "customer_segment": "regular",
+    "customer_id": "cust_dedab027",
+    "timestamp": "2026-08-13T05:02:11+05:30",
     "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_89fc4bef07ce",
-    "amount": 27228.13,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "authentication_failed",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "new",
-    "customer_id": "cust_304574ee",
-    "timestamp": "2026-08-05T14:17:52.782641+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_473f2d4dd0c7",
+    "payment_id": "pay_a53bc024d1a6",
     "amount": 2531.44,
     "currency": "INR",
     "payment_method": "upi",
@@ -2258,64 +1640,50 @@
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-05T00:38:32.782653+05:30",
+        "timestamp": "2026-08-05T01:28:31+05:30",
         "outcome": "timeout",
         "reason": "network_timeout"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-05T12:38:32.782653+05:30",
+        "timestamp": "2026-08-05T13:28:31+05:30",
         "outcome": "failed",
         "reason": "insufficient_funds"
       }
     ],
     "customer_segment": "regular",
-    "customer_id": "cust_88028a79",
-    "timestamp": "2026-08-04T14:38:32.782653+05:30",
+    "customer_id": "cust_1a5165ca",
+    "timestamp": "2026-08-04T15:28:31+05:30",
     "recovery_status": "failed"
   },
   {
-    "payment_id": "pay_dfae5eabd522",
-    "amount": 954.23,
+    "payment_id": "pay_50ee7a92a091",
+    "amount": 2931.22,
     "currency": "INR",
-    "payment_method": "wallet",
-    "failure_reason": "network_timeout",
-    "retry_count": 1,
+    "payment_method": "card",
+    "failure_reason": "card_expired",
+    "retry_count": 2,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-20T22:06:39.782671+05:30",
+        "timestamp": "2026-08-15T12:56:37+05:30",
+        "outcome": "failed",
+        "reason": "card_expired"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-16T06:56:37+05:30",
         "outcome": "timeout",
         "reason": "network_timeout"
       }
     ],
-    "customer_segment": "new",
-    "customer_id": "cust_d0cadd9c",
-    "timestamp": "2026-08-20T17:06:39.782671+05:30",
-    "recovery_status": "recovered"
-  },
-  {
-    "payment_id": "pay_cf187a1dc5b1",
-    "amount": 13552.93,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "insufficient_funds",
-    "retry_count": 1,
-    "retry_history": [
-      {
-        "attempt": 1,
-        "timestamp": "2026-08-10T00:37:37.782685+05:30",
-        "outcome": "failed",
-        "reason": "insufficient_funds"
-      }
-    ],
-    "customer_segment": "premium",
-    "customer_id": "cust_d7f4d3e0",
-    "timestamp": "2026-08-09T15:37:37.782685+05:30",
+    "customer_segment": "regular",
+    "customer_id": "cust_780b3657",
+    "timestamp": "2026-08-15T10:56:37+05:30",
     "recovery_status": "pending"
   },
   {
-    "payment_id": "pay_8d693d553491",
+    "payment_id": "pay_f44883858de7",
     "amount": 726.29,
     "currency": "INR",
     "payment_method": "card",
@@ -2324,57 +1692,306 @@
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-28T03:03:10.782699+05:30",
+        "timestamp": "2026-08-28T03:53:09+05:30",
         "outcome": "failed",
         "reason": "invalid_card"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-28T15:03:10.782699+05:30",
+        "timestamp": "2026-08-28T15:53:09+05:30",
         "outcome": "failed",
         "reason": "invalid_card"
       },
       {
         "attempt": 3,
-        "timestamp": "2026-08-28T00:03:10.782699+05:30",
+        "timestamp": "2026-08-28T00:53:09+05:30",
         "outcome": "failed",
         "reason": "invalid_card"
       }
     ],
     "customer_segment": "premium",
-    "customer_id": "cust_9709a4e4",
-    "timestamp": "2026-08-27T21:03:10.782699+05:30",
+    "customer_id": "cust_0a8076ec",
+    "timestamp": "2026-08-27T21:53:09+05:30",
     "recovery_status": "pending"
   },
   {
-    "payment_id": "pay_21134d63d8b3",
-    "amount": 1876.91,
+    "payment_id": "pay_707df251fdb1",
+    "amount": 2157.1,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "payment_cancelled",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "regular",
+    "customer_id": "cust_28a39779",
+    "timestamp": "2026-08-08T15:38:56+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_48bddb3e62f5",
+    "amount": 4750.24,
+    "currency": "INR",
+    "payment_method": "emandate",
+    "failure_reason": "bank_server_down",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-20T01:15:18+05:30",
+        "outcome": "failed",
+        "reason": "bank_server_down"
+      }
+    ],
+    "customer_segment": "new",
+    "customer_id": "cust_a8149562",
+    "timestamp": "2026-08-19T15:15:18+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_a4bbf962606e",
+    "amount": 3938.07,
     "currency": "INR",
     "payment_method": "netbanking",
-    "failure_reason": "risk_check_failed",
+    "failure_reason": "payment_cancelled",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-15T22:36:59+05:30",
+        "outcome": "failed",
+        "reason": "payment_cancelled"
+      }
+    ],
+    "customer_segment": "premium",
+    "customer_id": "cust_20b71785",
+    "timestamp": "2026-08-15T19:36:59+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_7c7c404ec422",
+    "amount": 4215.93,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "bank_server_down",
+    "retry_count": 3,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-13T20:17:39+05:30",
+        "outcome": "failed",
+        "reason": "bank_server_down"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-14T06:17:39+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
+      },
+      {
+        "attempt": 3,
+        "timestamp": "2026-08-13T19:17:39+05:30",
+        "outcome": "failed",
+        "reason": "bank_server_down"
+      }
+    ],
+    "customer_segment": "premium",
+    "customer_id": "cust_23377bbc",
+    "timestamp": "2026-08-13T10:17:39+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_c566aa81b15e",
+    "amount": 36370.84,
+    "currency": "INR",
+    "payment_method": "netbanking",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "regular",
+    "customer_id": "cust_2a60c652",
+    "timestamp": "2026-08-04T12:09:32+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_cf01f944f731",
+    "amount": 12781.24,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "network_timeout",
     "retry_count": 2,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-16T22:20:40.782716+05:30",
+        "timestamp": "2026-08-13T05:33:50+05:30",
         "outcome": "failed",
-        "reason": "risk_check_failed"
+        "reason": "network_timeout"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-17T01:20:40.782716+05:30",
+        "timestamp": "2026-08-13T05:33:50+05:30",
         "outcome": "failed",
-        "reason": "risk_check_failed"
+        "reason": "network_timeout"
       }
     ],
     "customer_segment": "regular",
-    "customer_id": "cust_e06ada2d",
-    "timestamp": "2026-08-16T21:20:40.782716+05:30",
+    "customer_id": "cust_d5c9fdc7",
+    "timestamp": "2026-08-12T19:33:50+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_5f07c1a5dfc6",
+    "amount": 1857.96,
+    "currency": "INR",
+    "payment_method": "wallet",
+    "failure_reason": "payment_cancelled",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "regular",
+    "customer_id": "cust_b61e5fdb",
+    "timestamp": "2026-08-24T22:54:02+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_ee33688d597e",
+    "amount": 468.87,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "card_expired",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-02T16:18:39+05:30",
+        "outcome": "failed",
+        "reason": "card_expired"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-02T23:18:39+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
+      }
+    ],
+    "customer_segment": "churning",
+    "customer_id": "cust_657e01c9",
+    "timestamp": "2026-08-02T13:18:39+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_c24369e72387",
+    "amount": 4181.7,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "regular",
+    "customer_id": "cust_9d8776a0",
+    "timestamp": "2026-08-12T22:52:11+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_3d0a5f0c0c39",
+    "amount": 281.92,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-21T23:50:42+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "churning",
+    "customer_id": "cust_9f708368",
+    "timestamp": "2026-08-21T13:50:42+05:30",
     "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_2cbc6f3ac0e7",
-    "amount": 4719.03,
+    "payment_id": "pay_2ff3cde46aa4",
+    "amount": 34395.32,
+    "currency": "INR",
+    "payment_method": "emandate",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-17T02:57:20+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_8603156a",
+    "timestamp": "2026-08-16T20:57:20+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_c9dc72b85b6a",
+    "amount": 208.53,
+    "currency": "INR",
+    "payment_method": "netbanking",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-18T23:48:07+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-19T13:48:07+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_bba205ca",
+    "timestamp": "2026-08-18T15:48:07+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_b74eba931027",
+    "amount": 33038.43,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "new",
+    "customer_id": "cust_0977c513",
+    "timestamp": "2026-08-02T18:29:44+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_5b62a8df493e",
+    "amount": 1159.6,
+    "currency": "INR",
+    "payment_method": "netbanking",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-07-30T07:38:49+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "premium",
+    "customer_id": "cust_dda4f4a7",
+    "timestamp": "2026-07-29T23:38:49+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_4447ceab84ef",
+    "amount": 620.1,
     "currency": "INR",
     "payment_method": "upi",
     "failure_reason": "network_timeout",
@@ -2382,117 +1999,464 @@
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-02T09:48:56.782731+05:30",
+        "timestamp": "2026-08-08T09:40:32+05:30",
         "outcome": "failed",
         "reason": "network_timeout"
       }
     ],
-    "customer_segment": "regular",
-    "customer_id": "cust_23e65a24",
-    "timestamp": "2026-08-02T06:48:56.782731+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_fb672bf018dc",
-    "amount": 2254.16,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "network_timeout",
-    "retry_count": 0,
-    "retry_history": [],
     "customer_segment": "premium",
-    "customer_id": "cust_36896083",
-    "timestamp": "2026-08-11T22:28:11.782744+05:30",
+    "customer_id": "cust_6cac028c",
+    "timestamp": "2026-08-08T02:40:32+05:30",
     "recovery_status": "recovered"
   },
   {
-    "payment_id": "pay_9aa5634b19f8",
-    "amount": 18270.85,
+    "payment_id": "pay_727716ec59fe",
+    "amount": 17626.44,
     "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "network_timeout",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "churning",
-    "customer_id": "cust_bd832e70",
-    "timestamp": "2026-08-07T21:37:38.782756+05:30",
-    "recovery_status": "escalated"
-  },
-  {
-    "payment_id": "pay_d19a28545e6a",
-    "amount": 499.99,
-    "currency": "INR",
-    "payment_method": "upi",
-    "failure_reason": "upi_pin_not_set",
+    "payment_method": "card",
+    "failure_reason": "risk_check_failed",
     "retry_count": 2,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-25T17:51:07.782768+05:30",
+        "timestamp": "2026-08-09T10:36:28+05:30",
         "outcome": "failed",
-        "reason": "upi_pin_not_set"
+        "reason": "risk_check_failed"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-26T06:51:07.782768+05:30",
+        "timestamp": "2026-08-09T01:36:28+05:30",
         "outcome": "failed",
-        "reason": "upi_pin_not_set"
+        "reason": "risk_check_failed"
       }
     ],
     "customer_segment": "regular",
-    "customer_id": "cust_8fc19328",
-    "timestamp": "2026-08-25T08:51:07.782768+05:30",
-    "recovery_status": "failed"
+    "customer_id": "cust_e95f176c",
+    "timestamp": "2026-08-08T23:36:28+05:30",
+    "recovery_status": "escalated"
   },
   {
-    "payment_id": "pay_4b76865a987d",
-    "amount": 361.78,
+    "payment_id": "pay_c8040fb7ad97",
+    "amount": 119.05,
     "currency": "INR",
-    "payment_method": "wallet",
+    "payment_method": "upi",
     "failure_reason": "network_timeout",
-    "retry_count": 0,
-    "retry_history": [],
-    "customer_segment": "regular",
-    "customer_id": "cust_3a71af66",
-    "timestamp": "2026-08-10T05:23:33.782783+05:30",
-    "recovery_status": "pending"
-  },
-  {
-    "payment_id": "pay_f5073e166532",
-    "amount": 12838.0,
-    "currency": "INR",
-    "payment_method": "card",
-    "failure_reason": "network_timeout",
-    "retry_count": 4,
+    "retry_count": 2,
     "retry_history": [
       {
         "attempt": 1,
-        "timestamp": "2026-08-22T01:54:42.782795+05:30",
+        "timestamp": "2026-08-15T10:36:32+05:30",
         "outcome": "failed",
         "reason": "network_timeout"
       },
       {
         "attempt": 2,
-        "timestamp": "2026-08-22T05:54:42.782795+05:30",
-        "outcome": "timeout",
+        "timestamp": "2026-08-15T18:36:32+05:30",
+        "outcome": "failed",
+        "reason": "network_timeout"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_113634a5",
+    "timestamp": "2026-08-15T00:36:32+05:30",
+    "recovery_status": "escalated"
+  },
+  {
+    "payment_id": "pay_4758367ba649",
+    "amount": 890.43,
+    "currency": "INR",
+    "payment_method": "netbanking",
+    "failure_reason": "authentication_failed",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-15T13:20:42+05:30",
+        "outcome": "failed",
+        "reason": "authentication_failed"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-15T09:20:42+05:30",
+        "outcome": "failed",
+        "reason": "authentication_failed"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_06a241af",
+    "timestamp": "2026-08-15T05:20:42+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_2c33350c73b9",
+    "amount": 597.41,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "network_timeout",
+    "retry_count": 3,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-12T14:02:41+05:30",
+        "outcome": "failed",
+        "reason": "network_timeout"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-12T14:02:41+05:30",
+        "outcome": "failed",
         "reason": "network_timeout"
       },
       {
         "attempt": 3,
-        "timestamp": "2026-08-22T17:54:42.782795+05:30",
+        "timestamp": "2026-08-12T08:02:41+05:30",
         "outcome": "failed",
         "reason": "network_timeout"
+      }
+    ],
+    "customer_segment": "premium",
+    "customer_id": "cust_ff4c96d6",
+    "timestamp": "2026-08-12T02:02:41+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_ca55e38b3c9a",
+    "amount": 5657.48,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "bank_server_down",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-16T20:13:30+05:30",
+        "outcome": "failed",
+        "reason": "bank_server_down"
+      }
+    ],
+    "customer_segment": "churning",
+    "customer_id": "cust_8dd4595b",
+    "timestamp": "2026-08-16T13:13:30+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_a4704d485128",
+    "amount": 4303.34,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 3,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-25T00:27:02+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
       },
       {
-        "attempt": 4,
-        "timestamp": "2026-08-22T21:54:42.782795+05:30",
+        "attempt": 2,
+        "timestamp": "2026-08-25T08:27:02+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      },
+      {
+        "attempt": 3,
+        "timestamp": "2026-08-25T07:27:02+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "premium",
+    "customer_id": "cust_ae1b9f69",
+    "timestamp": "2026-08-24T22:27:02+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_5894f7f139b8",
+    "amount": 1437.53,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-10T04:54:28+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "new",
+    "customer_id": "cust_e519dd7e",
+    "timestamp": "2026-08-09T18:54:28+05:30",
+    "recovery_status": "escalated"
+  },
+  {
+    "payment_id": "pay_b87b63849fdd",
+    "amount": 41985.78,
+    "currency": "INR",
+    "payment_method": "emandate",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-21T01:46:11+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "churning",
+    "customer_id": "cust_d7b00bdc",
+    "timestamp": "2026-08-20T15:46:11+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_8baaf744a08d",
+    "amount": 76.96,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "invalid_card",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "premium",
+    "customer_id": "cust_4d560a3d",
+    "timestamp": "2026-08-14T22:29:31+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_dc8a49225005",
+    "amount": 2957.35,
+    "currency": "INR",
+    "payment_method": "wallet",
+    "failure_reason": "payment_cancelled",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "new",
+    "customer_id": "cust_fcef1972",
+    "timestamp": "2026-08-15T08:42:32+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_f204be894a4b",
+    "amount": 2938.14,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "risk_check_failed",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-05T11:28:28+05:30",
         "outcome": "timeout",
         "reason": "network_timeout"
       }
     ],
-    "customer_segment": "churning",
-    "customer_id": "cust_c107324c",
-    "timestamp": "2026-08-21T17:54:42.782795+05:30",
+    "customer_segment": "new",
+    "customer_id": "cust_6b0ae0e3",
+    "timestamp": "2026-08-05T06:28:28+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_64ab851bf1fa",
+    "amount": 11542.6,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "bank_server_down",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-14T09:26:00+05:30",
+        "outcome": "failed",
+        "reason": "bank_server_down"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-14T12:26:00+05:30",
+        "outcome": "failed",
+        "reason": "bank_server_down"
+      }
+    ],
+    "customer_segment": "new",
+    "customer_id": "cust_3da06476",
+    "timestamp": "2026-08-14T02:26:00+05:30",
     "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_0b95017c5dae",
+    "amount": 7797.21,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "authentication_failed",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "new",
+    "customer_id": "cust_8fd33afc",
+    "timestamp": "2026-08-09T14:20:53+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_cb7e62685f89",
+    "amount": 67.51,
+    "currency": "INR",
+    "payment_method": "card",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-07T04:08:30+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_f05eeefe",
+    "timestamp": "2026-08-07T01:08:30+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_518b2f219cf2",
+    "amount": 4126.22,
+    "currency": "INR",
+    "payment_method": "netbanking",
+    "failure_reason": "bank_server_down",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-20T07:07:59+05:30",
+        "outcome": "failed",
+        "reason": "bank_server_down"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_9dd2f9de",
+    "timestamp": "2026-08-19T20:07:59+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_4ec3f970956d",
+    "amount": 12761.62,
+    "currency": "INR",
+    "payment_method": "netbanking",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 1,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-11T07:13:57+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_df41e335",
+    "timestamp": "2026-08-11T04:13:57+05:30",
+    "recovery_status": "escalated"
+  },
+  {
+    "payment_id": "pay_3e00980eae44",
+    "amount": 3231.13,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 3,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-05T04:01:30+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-05T16:01:30+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      },
+      {
+        "attempt": 3,
+        "timestamp": "2026-08-05T19:01:30+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "regular",
+    "customer_id": "cust_b35556a5",
+    "timestamp": "2026-08-04T16:01:30+05:30",
+    "recovery_status": "pending"
+  },
+  {
+    "payment_id": "pay_a987b218ff84",
+    "amount": 4602.96,
+    "currency": "INR",
+    "payment_method": "emandate",
+    "failure_reason": "bank_server_down",
+    "retry_count": 0,
+    "retry_history": [],
+    "customer_segment": "regular",
+    "customer_id": "cust_50521700",
+    "timestamp": "2026-08-07T15:08:16+05:30",
+    "recovery_status": "recovered"
+  },
+  {
+    "payment_id": "pay_3f1be0d0f514",
+    "amount": 3467.01,
+    "currency": "INR",
+    "payment_method": "emandate",
+    "failure_reason": "emandate_debit_failed",
+    "retry_count": 3,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-14T12:24:01+05:30",
+        "outcome": "failed",
+        "reason": "emandate_debit_failed"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-14T10:24:01+05:30",
+        "outcome": "failed",
+        "reason": "emandate_debit_failed"
+      },
+      {
+        "attempt": 3,
+        "timestamp": "2026-08-15T06:24:01+05:30",
+        "outcome": "timeout",
+        "reason": "network_timeout"
+      }
+    ],
+    "customer_segment": "premium",
+    "customer_id": "cust_3990e2c9",
+    "timestamp": "2026-08-14T00:24:01+05:30",
+    "recovery_status": "failed"
+  },
+  {
+    "payment_id": "pay_d1812f776500",
+    "amount": 37959.02,
+    "currency": "INR",
+    "payment_method": "upi",
+    "failure_reason": "insufficient_funds",
+    "retry_count": 2,
+    "retry_history": [
+      {
+        "attempt": 1,
+        "timestamp": "2026-08-06T01:46:48+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      },
+      {
+        "attempt": 2,
+        "timestamp": "2026-08-06T02:46:48+05:30",
+        "outcome": "failed",
+        "reason": "insufficient_funds"
+      }
+    ],
+    "customer_segment": "churning",
+    "customer_id": "cust_cdfb4db9",
+    "timestamp": "2026-08-05T20:46:48+05:30",
+    "recovery_status": "pending"
   }
 ]

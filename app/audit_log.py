@@ -40,8 +40,9 @@ def append_entry(
     """
     _ensure_log_file()
 
+    import random
     entry = {
-        "audit_id": f"aud_{uuid.uuid4().hex[:12]}",
+        "audit_id": f"aud_{uuid.UUID(int=random.getrandbits(128)).hex[:12]}",
         "timestamp": datetime.now(IST).isoformat(),
         "payment_id": payment_id,
         "input_snapshot": input_snapshot,

@@ -303,25 +303,46 @@ async function loadEvaluation() {
       return;
     }
     
-    const m = data.metrics;
+    const baseline = data.baseline || {};
+    const ai = data.ai_assisted || {};
+    const stats = data.agent_stats || {};
+    
+    const baseRate = Number(baseline.recovery_rate || 0);
+    const aiRate = Number(ai.recovery_rate || 0);
+    const baseRev = Number(baseline.revenue_recovered || 0);
+    const aiRev = Number(ai.revenue_recovered || 0);
+    
     const rows = [
-      { label: 'Recovery Rate', base: m.baseline_recovery_rate + '%', ai: m.ai_recovery_rate + '%', delta: (m.ai_recovery_rate - m.baseline_recovery_rate).toFixed(1) + '%' },
-      { label: 'Revenue Recovered', base: formatINR(m.baseline_recovered_amount), ai: formatINR(m.ai_recovered_amount), delta: formatINR(m.ai_recovered_amount - m.baseline_recovered_amount) },
-      { label: 'Recovered Cases', base: m.baseline_recovered_cases, ai: m.ai_recovered_cases, delta: m.ai_recovered_cases - m.baseline_recovered_cases },
-      { label: 'Pending Cases', base: m.baseline_pending_cases, ai: m.ai_pending_cases, delta: m.ai_pending_cases - m.baseline_pending_cases },
+      { label: 'Recovery Rate', base: baseRate.toFixed(1) + '%', ai: aiRate.toFixed(1) + '%', delta: (aiRate - baseRate).toFixed(1) },
+      { label: 'Simulated Revenue Recovered', base: formatINR(baseRev), ai: formatINR(aiRev), delta: formatINR(aiRev - baseRev) },
+      { label: 'Recovered Cases', base: baseline.recovered || 0, ai: ai.recovered || 0, delta: (ai.recovered || 0) - (baseline.recovered || 0) },
+      { label: 'Unsafe Actions Blocked', base: '—', ai: stats.unsafe_blocked || 0, delta: '—' },
+      { label: 'Unresolved / Manual Review', base: '—', ai: data.unresolved_count || 0, delta: '—' },
+      { label: 'Action Accuracy', base: '—', ai: (stats.action_accuracy_pct || 100).toFixed(1) + '%', delta: '—' }
     ];
     
     rows.forEach(r => {
-      const isPos = String(r.delta).startsWith('+') || (!String(r.delta).startsWith('-') && r.delta !== '0' && r.delta !== '₹0');
-      const dCls = isPos ? 'text-emerald' : 'text-secondary';
-      const dPrefix = isPos && typeof r.delta === 'number' ? '+' : '';
+      let isPos = false;
+      let dPrefix = '';
+      if (r.delta !== '—') {
+        const dVal = typeof r.delta === 'string' ? parseFloat(r.delta.replace(/[^0-9.-]+/g,"")) : r.delta;
+        isPos = dVal > 0;
+        if (isPos && !String(r.delta).startsWith('+')) dPrefix = '+';
+      }
+      
+      let dCls = 'text-secondary';
+      if (r.delta !== '—' && r.label === 'Recovery Rate') dCls = isPos ? 'text-emerald' : 'text-secondary';
+      else if (r.delta !== '—' && r.label === 'Simulated Revenue Recovered') dCls = isPos ? 'text-emerald' : 'text-secondary';
+      else if (r.delta !== '—' && r.label === 'Recovered Cases') dCls = isPos ? 'text-emerald' : 'text-secondary';
+      
+      const deltaText = r.delta === '—' ? r.delta : (r.label === 'Recovery Rate' ? `${dPrefix}${r.delta} pp` : `${dPrefix}${r.delta}`);
       
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td style="font-weight:500">${r.label}</td>
         <td class="tabular-nums">${r.base}</td>
         <td class="tabular-nums">${r.ai}</td>
-        <td class="tabular-nums ${dCls}">${dPrefix}${r.delta}</td>
+        <td class="tabular-nums ${dCls}">${deltaText}</td>
       `;
       tbody.appendChild(tr);
     });

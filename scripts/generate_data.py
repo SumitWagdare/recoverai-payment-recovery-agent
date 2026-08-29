@@ -83,7 +83,7 @@ def generate_amount() -> float:
 
 def generate_timestamp(days_back: int = 30) -> str:
     """Generate a random timestamp within the last N days."""
-    now = datetime.now(IST)
+    now = datetime(2026, 8, 29, 12, 0, 0, tzinfo=IST)
     delta = timedelta(
         days=random.randint(0, days_back),
         hours=random.randint(0, 23),
@@ -122,8 +122,8 @@ def generate_retry_history(retry_count: int, base_ts: str, failure_reason: str) 
 
 def generate_record(index: int) -> dict:
     """Generate a single synthetic payment record."""
-    payment_id = f"pay_{uuid.uuid4().hex[:12]}"
-    customer_id = f"cust_{uuid.uuid4().hex[:8]}"
+    payment_id = f"pay_{uuid.UUID(int=random.getrandbits(128)).hex[:12]}"
+    customer_id = f"cust_{uuid.UUID(int=random.getrandbits(128)).hex[:8]}"
     method = weighted_choice(PAYMENT_METHODS)
     failure_reason = get_failure_reason(method)
     segment = weighted_choice(CUSTOMER_SEGMENTS)
