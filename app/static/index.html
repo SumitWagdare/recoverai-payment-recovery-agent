@@ -3,172 +3,267 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="RecoverAI — Explainable AI agent for detecting failed payments and executing safe revenue-recovery workflows." />
-  <title>RecoverAI — Payment Recovery Dashboard</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>RecoverAI · Revenue Recovery Intelligence</title>
   <link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body>
-  <div class="app">
-    <!-- ── Header ──────────────────────────────────────────────────── -->
-    <header class="header" id="app-header">
-      <div class="header-left">
-        <div class="logo">
-          <span class="logo-icon">⚡</span>
-          <span class="logo-text">Recover<span class="logo-accent">AI</span></span>
+  <div class="app-shell">
+    
+    <!-- ── Sidebar ───────────────────────────────────────────────────────── -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <svg class="brand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <span>Recover<span class="brand-accent">AI</span></span>
         </div>
-        <span class="header-subtitle">Payment Recovery Agent</span>
       </div>
-      <div class="header-right">
-        <span class="safety-badge" id="safety-badge">
-          <span class="pulse-dot"></span>
-          SYNTHETIC DATA ONLY
-        </span>
+      
+      <nav class="sidebar-nav" id="main-tabs">
+        <button class="nav-item active" data-tab="overview">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Overview
+        </button>
+        <button class="nav-item" data-tab="queue">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Review Queue <span class="badge badge-amber" id="nav-queue-count" style="margin-left:auto">0</span>
+        </button>
+        <button class="nav-item" data-tab="payments">
+          <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Payments
+        </button>
+        <button class="nav-item" data-tab="audit">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Audit Trail
+        </button>
+        <button class="nav-item" data-tab="evaluation">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Evaluation
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="status-chip">Demo / Read-Only</div>
+        <div style="font-size: 11px; color: var(--text-tertiary); margin-top: 8px;">Simulation engine operational</div>
       </div>
-    </header>
+    </aside>
 
-    <!-- ── Navigation Tabs ─────────────────────────────────────────── -->
-    <nav class="tabs" id="main-tabs">
-      <button class="tab active" data-tab="dashboard" id="tab-dashboard">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-        Dashboard
-      </button>
-      <button class="tab" data-tab="payments" id="tab-payments">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        Payments
-      </button>
-      <button class="tab" data-tab="audit" id="tab-audit">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        Audit Log
-      </button>
-    </nav>
-
-    <!-- ── Dashboard Tab ───────────────────────────────────────────── -->
-    <main class="content">
-      <section class="tab-content active" id="dashboard-section">
-        <div class="stats-grid" id="stats-grid">
-          <div class="stat-card stat-total" id="stat-total-failed">
-            <div class="stat-icon">💰</div>
-            <div class="stat-info">
-              <span class="stat-label">Total Failed Amount</span>
-              <span class="stat-value" id="val-total-failed">₹0</span>
-            </div>
-            <div class="stat-footer" id="footer-total-cases">0 cases</div>
-          </div>
-          <div class="stat-card stat-recoverable" id="stat-recoverable">
-            <div class="stat-icon">🔄</div>
-            <div class="stat-info">
-              <span class="stat-label">Recoverable Amount</span>
-              <span class="stat-value" id="val-recoverable">₹0</span>
-            </div>
-            <div class="stat-footer" id="footer-recoverable">includes pending + recovered</div>
-          </div>
-          <div class="stat-card stat-rate" id="stat-recovery-rate">
-            <div class="stat-icon">📈</div>
-            <div class="stat-info">
-              <span class="stat-label">Recovery Rate</span>
-              <span class="stat-value" id="val-recovery-rate">0%</span>
-            </div>
-            <div class="stat-footer" id="footer-recovered-cases">0 recovered</div>
-          </div>
-          <div class="stat-card stat-pending" id="stat-pending">
-            <div class="stat-icon">⏳</div>
-            <div class="stat-info">
-              <span class="stat-label">Pending Cases</span>
-              <span class="stat-value" id="val-pending">0</span>
-            </div>
-            <div class="stat-footer" id="footer-escalated">0 escalated</div>
-          </div>
+    <!-- ── Main Content ──────────────────────────────────────────────────── -->
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-title" id="topbar-title">Overview</div>
+        <div class="topbar-actions">
+          <span id="last-updated">Updated just now</span>
+          <div style="width: 1px; height: 16px; background: var(--border-color)"></div>
+          <span>/ to search</span>
         </div>
+      </header>
 
-        <!-- Breakdown Charts -->
-        <div class="charts-grid">
-          <div class="chart-card" id="chart-failure-reasons">
-            <h3 class="chart-title">Failure Reasons</h3>
-            <div class="bar-chart" id="bars-failure-reasons"></div>
-          </div>
-          <div class="chart-card" id="chart-payment-methods">
-            <h3 class="chart-title">Payment Methods</h3>
-            <div class="bar-chart" id="bars-payment-methods"></div>
-          </div>
-        </div>
-      </section>
+      <div class="content-scroll">
+        
+        <!-- View: Overview -->
+        <section class="view-section active" id="view-overview">
+          <div class="overview-grid">
+            
+            <!-- Left Column -->
+            <div class="overview-main">
+              <div class="panel hero-panel mb-6">
+                <div>
+                  <div class="hero-label">Revenue at risk</div>
+                  <div class="hero-value tabular-nums" id="hero-amount-risk">₹0</div>
+                  <div class="hero-context" id="hero-context">Loading dataset...</div>
+                </div>
+                <div style="text-align: right">
+                  <button class="btn btn-primary" onclick="document.querySelector('[data-tab=\'queue\']').click()">Open review queue</button>
+                </div>
+              </div>
 
-      <!-- ── Payments Tab ────────────────────────────────────────────── -->
-      <section class="tab-content" id="payments-section">
-        <div class="payments-toolbar" id="payments-toolbar">
-          <div class="filter-group">
-            <select id="filter-status" class="filter-select">
-              <option value="">All Statuses</option>
-              <option value="pending">Pending</option>
-              <option value="recovered">Recovered</option>
-              <option value="failed">Failed</option>
-              <option value="escalated">Escalated</option>
+              <div class="kpi-grid mb-6">
+                <div class="kpi-card" data-tooltip="Percentage of failed payments successfully recovered">
+                  <div class="kpi-header"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Recovery rate</div>
+                  <div class="kpi-value tabular-nums" id="kpi-rate">0%</div>
+                  <div class="kpi-delta text-emerald" id="kpi-rate-delta">-- vs baseline</div>
+                </div>
+                <div class="kpi-card" data-tooltip="Total INR successfully recovered by AI agent">
+                  <div class="kpi-header"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Simulated recovered</div>
+                  <div class="kpi-value tabular-nums" id="kpi-recovered">₹0</div>
+                  <div class="kpi-delta text-secondary" id="kpi-recovered-cases">0 cases</div>
+                </div>
+                <div class="kpi-card" data-tooltip="Cases requiring human operator approval">
+                  <div class="kpi-header"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l2-9 5 18 3-9h4"/></svg> Awaiting review</div>
+                  <div class="kpi-value tabular-nums text-amber" id="kpi-review">0</div>
+                  <div class="kpi-delta text-amber">High priority cases</div>
+                </div>
+                <div class="kpi-card" data-tooltip="Actions blocked by safety guards (Max retries, Cooldowns)">
+                  <div class="kpi-header"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Policy blocks</div>
+                  <div class="kpi-value tabular-nums" id="kpi-blocked">0</div>
+                  <div class="kpi-delta text-secondary">Safety constraints</div>
+                </div>
+              </div>
+
+              <!-- Priority Queue (Mini Table) -->
+              <div class="panel">
+                <div class="panel-header">
+                  <h2 class="panel-title">Priority Recovery Queue</h2>
+                </div>
+                <div class="data-table-wrapper">
+                  <table class="data-table" id="priority-table">
+                    <thead>
+                      <tr>
+                        <th>Payment ID</th>
+                        <th>Amount</th>
+                        <th>Failure</th>
+                        <th>AI Recommendation</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody id="priority-tbody">
+                      <!-- injected via JS -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="overview-side">
+              <div class="panel">
+                <div class="panel-header">
+                  <h2 class="panel-title">Decision Activity</h2>
+                </div>
+                <div class="activity-rail" id="activity-rail">
+                  <!-- injected via JS -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- View: Review Queue -->
+        <section class="view-section" id="view-queue">
+          <div class="filters-bar">
+            <select id="queue-filter" class="filter-select">
+              <option value="all">All Pending Review</option>
+              <option value="high_value">High Value (>\u20b910k)</option>
+              <option value="customer_facing">Customer Facing Actions</option>
+              <option value="low_confidence">Low Confidence</option>
             </select>
-            <select id="filter-method" class="filter-select">
-              <option value="">All Methods</option>
-              <option value="upi">UPI</option>
-              <option value="card">Card</option>
-              <option value="netbanking">Netbanking</option>
-              <option value="wallet">Wallet</option>
-              <option value="emandate">E-Mandate</option>
-            </select>
-            <select id="filter-segment" class="filter-select">
-              <option value="">All Segments</option>
-              <option value="new">New</option>
-              <option value="regular">Regular</option>
-              <option value="premium">Premium</option>
-              <option value="churning">Churning</option>
-            </select>
           </div>
-          <div class="payments-count" id="payments-count">0 payments</div>
-        </div>
-        <div class="table-wrapper" id="table-wrapper">
-          <table class="payments-table" id="payments-table">
-            <thead>
-              <tr>
-                <th>Payment ID</th>
-                <th>Amount</th>
-                <th>Method</th>
-                <th>Failure Reason</th>
-                <th>Retries</th>
-                <th>Segment</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="payments-tbody"></tbody>
-          </table>
-        </div>
-      </section>
+          <div class="data-table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Payment ID</th>
+                  <th>Amount</th>
+                  <th>Failure Reason</th>
+                  <th>Segment</th>
+                  <th>Action Needed</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="queue-tbody"></tbody>
+            </table>
+          </div>
+        </section>
 
-      <!-- ── Audit Log Tab ───────────────────────────────────────────── -->
-      <section class="tab-content" id="audit-section">
-        <div class="audit-header">
-          <h2 class="section-title">Decision Audit Trail</h2>
-          <span class="audit-count" id="audit-count">0 entries</span>
-        </div>
-        <div class="audit-feed" id="audit-feed"></div>
-      </section>
+        <!-- View: Payments -->
+        <section class="view-section" id="view-payments">
+           <div class="filters-bar">
+            <select id="pay-status" class="filter-select"><option value="">All Statuses</option><option value="pending">Pending</option><option value="recovered">Recovered</option><option value="failed">Failed</option><option value="escalated">Escalated</option></select>
+            <select id="pay-method" class="filter-select"><option value="">All Methods</option><option value="upi">UPI</option><option value="card">Card</option><option value="netbanking">Netbanking</option></select>
+            <select id="pay-segment" class="filter-select"><option value="">All Segments</option><option value="new">New</option><option value="regular">Regular</option><option value="premium">Premium</option><option value="churning">Churning</option></select>
+          </div>
+          <div class="data-table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Payment ID</th>
+                  <th>Amount</th>
+                  <th>Failure Reason</th>
+                  <th>Retries</th>
+                  <th>Segment</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="payments-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- View: Audit Trail -->
+        <section class="view-section" id="view-audit">
+          <div class="data-table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Payment ID</th>
+                  <th>Audit ID</th>
+                  <th>Action</th>
+                  <th>Approval Status</th>
+                  <th>Result</th>
+                </tr>
+              </thead>
+              <tbody id="audit-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- View: Evaluation -->
+        <section class="view-section" id="view-evaluation">
+          <div class="panel mb-6">
+            <div class="panel-header">
+              <h2 class="panel-title">Batch Evaluation Proof</h2>
+              <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">
+                Comparing baseline (status-quo) against RecoverAI simulated execution.
+              </div>
+            </div>
+            
+            <div class="data-table-wrapper mb-6">
+              <table class="data-table" id="eval-table">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>Baseline</th>
+                    <th>AI-Assisted</th>
+                    <th>Delta</th>
+                  </tr>
+                </thead>
+                <tbody id="eval-tbody">
+                  <!-- injected via JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="reasoning-box mb-6">
+              <strong>RecoverAI improves recovery while preserving safety:</strong> uncertain, high-value, opted-out, or retry-exhausted cases are not silently automated. 100% action accuracy maintained across the rule matrix.
+            </div>
+
+            <div class="panel-header"><h2 class="panel-title">Reproduce locally</h2></div>
+            <pre style="background: var(--bg-canvas); padding: 16px; border-radius: 6px; font-family: monospace; font-size: 12px; color: var(--text-secondary); border: 1px solid var(--border-color);"><code>python scripts/run_batch.py</code></pre>
+            <div style="font-size: 12px; color: var(--text-tertiary); margin-top: 8px;">All results use synthetic data and simulated outcomes.</div>
+          </div>
+        </section>
+      </div>
     </main>
 
-    <!-- ── AI Decision Modal ─────────────────────────────────────────── -->
-    <div class="modal-overlay" id="modal-overlay">
-      <div class="modal" id="decision-modal">
-        <div class="modal-header">
-          <h2 class="modal-title">AI Decision Panel</h2>
-          <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+    <!-- ── Review Drawer (replaces modal) ────────────────────────────────── -->
+    <div class="drawer-overlay" id="drawer-overlay">
+      <aside class="drawer">
+        <div class="drawer-header">
+          <h2 class="topbar-title">Review Case</h2>
+          <button id="drawer-close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
         </div>
-        <div class="modal-body" id="modal-body">
-          <!-- Populated dynamically -->
+        <div class="drawer-body" id="drawer-body">
+          <!-- Injected via JS -->
         </div>
-      </div>
+        <div class="drawer-footer" id="drawer-footer">
+          <!-- Injected via JS -->
+        </div>
+      </aside>
     </div>
 
-    <!-- ── Toast Notifications ───────────────────────────────────────── -->
-    <div class="toast-container" id="toast-container"></div>
   </div>
 
   <script src="/static/app.js"></script>

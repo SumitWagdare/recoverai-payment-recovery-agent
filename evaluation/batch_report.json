@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-29T10:59:25.067430+05:30",
+  "timestamp": "2026-08-29T11:10:01.865848+05:30",
   "baseline": {
     "total": 120,
     "recovered": 34,
@@ -11,12 +11,12 @@
   },
   "ai_assisted": {
     "total": 120,
-    "recovered": 43,
-    "pending": 43,
+    "recovered": 46,
+    "pending": 40,
     "failed": 22,
     "escalated": 12,
-    "recovery_rate": 35.8,
-    "revenue_recovered": 296421.38
+    "recovery_rate": 38.3,
+    "revenue_recovered": 305529.53
   },
   "agent_stats": {
     "processed": 74,
@@ -40,7 +40,7 @@
     }
   },
   "graceful_failures_count": 46,
-  "unresolved_count": 65,
-  "unresolved_amount": 453359.94,
+  "unresolved_count": 62,
+  "unresolved_amount": 444251.79,
   "audit_entries": 73
 }

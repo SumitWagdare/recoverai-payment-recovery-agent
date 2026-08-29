@@ -1,14 +1,12 @@
 /**
  * RecoverAI — Dashboard Application
- *
- * Vanilla JS SPA handling dashboard stats, payment table,
- * AI processing, human approval workflow, and audit log.
+ * Premium Fintech 2026 Redesign
  */
 
 // ── State ────────────────────────────────────────────────────────────────────
-let currentTab = 'dashboard';
+let currentTab = 'overview';
 let paymentsData = [];
-let pendingAuditId = null;  // for modal approval/rejection
+let pendingAuditId = null;
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -38,147 +36,197 @@ function formatReason(r) {
   return r.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 }
 
-const ACTION_ICONS = {
-  retry_later: '🔄',
-  send_payment_link: '🔗',
-  request_alt_method: '💳',
-  escalate_to_support: '🚨',
-};
-
 const ACTION_LABELS = {
   retry_later: 'Retry Later',
   send_payment_link: 'Send Payment Link',
   request_alt_method: 'Request Alt Method',
-  escalate_to_support: 'Escalate to Support',
+  escalate_to_support: 'Escalate',
 };
 
-// ── Toast Notifications ──────────────────────────────────────────────────────
-
-function showToast(message, type = 'info') {
-  const container = $('#toast-container');
-  const toast = document.createElement('div');
-  toast.className = `toast toast-${type}`;
-  toast.textContent = message;
-  container.appendChild(toast);
-
-  setTimeout(() => {
-    toast.classList.add('toast-exit');
-    setTimeout(() => toast.remove(), 300);
-  }, 3500);
-}
-
-// ── Tab Switching ────────────────────────────────────────────────────────────
+// ── Tab Navigation ───────────────────────────────────────────────────────────
 
 function initTabs() {
-  $$('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.dataset.tab;
+  $$('.nav-item').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
       if (target === currentTab) return;
 
-      $$('.tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+      $$('.nav-item').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-      $$('.tab-content').forEach(s => s.classList.remove('active'));
-      $(`#${target}-section`).classList.add('active');
+      $$('.view-section').forEach(s => s.classList.remove('active'));
+      $(`#view-${target}`).classList.add('active');
 
       currentTab = target;
+      
+      const titles = {
+        overview: 'Overview',
+        queue: 'Review Queue',
+        payments: 'Payments Directory',
+        audit: 'Audit Trail',
+        evaluation: 'Batch Evaluation'
+      };
+      $('#topbar-title').textContent = titles[target] || 'Overview';
 
+      // Load data based on tab
+      if (target === 'queue') loadQueue();
       if (target === 'payments') loadPayments();
       if (target === 'audit') loadAuditLog();
+      if (target === 'evaluation') loadEvaluation();
     });
   });
 }
 
-// ── Counter Animation ────────────────────────────────────────────────────────
-
-function animateValue(el, end, prefix = '', suffix = '', duration = 800) {
-  const start = 0;
-  const startTime = performance.now();
-
-  function tick(now) {
-    const elapsed = now - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    // Ease-out cubic
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.round(start + (end - start) * eased);
-
-    if (prefix === '₹') {
-      el.textContent = prefix + current.toLocaleString('en-IN');
-    } else {
-      el.textContent = prefix + current + suffix;
-    }
-
-    if (progress < 1) requestAnimationFrame(tick);
-  }
-
-  requestAnimationFrame(tick);
-}
-
-// ── Dashboard ────────────────────────────────────────────────────────────────
+// ── Data Loaders ─────────────────────────────────────────────────────────────
 
 async function loadDashboard() {
   try {
     const stats = await api('/api/dashboard');
+    
+    // Hero
+    $('#hero-amount-risk').textContent = formatINR(stats.total_failed_amount);
+    $('#hero-context').textContent = `${stats.total_cases} failed payments · ${stats.pending_cases} awaiting review`;
+    
+    // KPIs
+    $('#kpi-rate').textContent = Math.round(stats.recovery_rate) + '%';
+    $('#kpi-recovered').textContent = formatINR(stats.recoverable_amount);
+    $('#kpi-recovered-cases').textContent = `${stats.recovered_cases} cases`;
+    
+    // Try to fetch evaluation for the delta
+    try {
+      const evalData = await api('/api/evaluation');
+      const baselineRate = evalData.metrics?.baseline_recovery_rate || 28.3;
+      const delta = (stats.recovery_rate - baselineRate).toFixed(1);
+      $('#kpi-rate-delta').textContent = delta >= 0 ? `+${delta} pp vs baseline` : `${delta} pp vs baseline`;
+    } catch (e) {
+      // Ignore if evaluation endpoint fails
+    }
 
-    animateValue($('#val-total-failed'), Math.round(stats.total_failed_amount), '₹');
-    animateValue($('#val-recoverable'), Math.round(stats.recoverable_amount), '₹');
-    animateValue($('#val-recovery-rate'), Math.round(stats.recovery_rate), '', '%');
-    animateValue($('#val-pending'), stats.pending_cases);
+    // We'll load recent payments to populate the Priority Queue and Activity Rail
+    const paymentsRes = await api('/api/payments');
+    const all = paymentsRes.payments || [];
+    
+    // Priority Queue (Pending, High value or customer facing)
+    const pending = all.filter(p => p.recovery_status === 'pending');
+    $('#nav-queue-count').textContent = pending.length;
+    $('#kpi-review').textContent = pending.length;
+    
+    // Blocked (Failed/Escalated)
+    const blocked = all.filter(p => p.recovery_status === 'failed' || p.recovery_status === 'escalated');
+    $('#kpi-blocked').textContent = blocked.length;
 
-    $('#footer-total-cases').textContent = `${stats.total_cases} total cases`;
-    $('#footer-recovered-cases').textContent = `${stats.recovered_cases} recovered`;
-    $('#footer-escalated').textContent = `${stats.escalated_cases} escalated · ${stats.failed_cases} failed`;
+    // Render Mini Priority Queue
+    const priorityTable = $('#priority-tbody');
+    priorityTable.innerHTML = '';
+    pending.slice(0, 5).forEach(p => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><span style="font-family:monospace;font-size:12px">${p.payment_id}</span></td>
+        <td class="tabular-nums">${formatINR(p.amount)}</td>
+        <td>${formatReason(p.failure_reason)}</td>
+        <td><span class="badge badge-amber">Requires Review</span></td>
+        <td><button class="btn btn-secondary btn-sm" onclick="openReview('${p.payment_id}')">Review</button></td>
+      `;
+      priorityTable.appendChild(tr);
+    });
+    
+    if (pending.length === 0) {
+      priorityTable.innerHTML = `<tr><td colspan="5" class="empty-state">Queue is empty</td></tr>`;
+    }
 
-    renderBarChart('bars-failure-reasons', stats.by_failure_reason);
-    renderBarChart('bars-payment-methods', stats.by_payment_method);
+    // Activity Rail
+    loadActivityRail();
+    
   } catch (e) {
-    showToast('Failed to load dashboard data', 'error');
+    console.error('Failed to load dashboard', e);
+  }
+}
+
+async function loadActivityRail() {
+  try {
+    const data = await api('/api/audit-log');
+    const rail = $('#activity-rail');
+    rail.innerHTML = '';
+    
+    if (!data.entries || data.entries.length === 0) {
+      rail.innerHTML = '<div class="empty-state">No activity yet</div>';
+      return;
+    }
+    
+    data.entries.slice(0, 6).forEach(e => {
+      let markerCls = 'marker-success';
+      let statusText = 'Auto-approved retry';
+      
+      if (e.approval_status === 'awaiting_approval') {
+        markerCls = 'marker-review';
+        statusText = 'Routed to manual review';
+      } else if (e.execution_result && e.execution_result.includes('blocked')) {
+        markerCls = 'marker-blocked';
+        statusText = 'Blocked by safety rule';
+      }
+      
+      const div = document.createElement('div');
+      div.className = 'activity-item';
+      div.innerHTML = `
+        <div class="activity-marker ${markerCls}"></div>
+        <div class="activity-content">
+          <div class="activity-header">
+            <span class="activity-title">${statusText}</span>
+            <span class="activity-time">${formatDate(e.timestamp).split(' ')[1]}</span>
+          </div>
+          <div class="activity-desc">
+            ${e.payment_id} · ${ACTION_LABELS[e.recommended_action] || e.recommended_action}
+          </div>
+        </div>
+      `;
+      rail.appendChild(div);
+    });
+  } catch(e) {}
+}
+
+async function loadQueue() {
+  const filter = $('#queue-filter').value;
+  try {
+    const data = await api('/api/payments?status=pending');
+    let payments = data.payments || [];
+    
+    if (filter === 'high_value') {
+      payments = payments.filter(p => p.amount >= 10000);
+    } else if (filter === 'customer_facing') {
+      // rough heuristic if we don't have the exact classification
+      payments = payments.filter(p => p.failure_reason.includes('funds') || p.failure_reason.includes('pin'));
+    }
+    
+    const tbody = $('#queue-tbody');
+    tbody.innerHTML = '';
+    
+    if (payments.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="6" class="empty-state">No cases match filter</td></tr>`;
+      return;
+    }
+    
+    payments.forEach(p => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="font-family:monospace;font-size:12px">${p.payment_id}</td>
+        <td class="tabular-nums">${formatINR(p.amount)}</td>
+        <td>${formatReason(p.failure_reason)}</td>
+        <td><span class="badge badge-neutral">${p.customer_segment}</span></td>
+        <td><span class="badge badge-amber">Manual Review</span></td>
+        <td><button class="btn btn-secondary" onclick="openReview('${p.payment_id}')">Review Case</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  } catch (e) {
     console.error(e);
   }
 }
 
-function renderBarChart(containerId, data) {
-  const container = document.getElementById(containerId);
-  container.innerHTML = '';
-
-  if (!data || Object.keys(data).length === 0) {
-    container.innerHTML = '<div class="empty-state"><div class="empty-state-text">No data available</div></div>';
-    return;
-  }
-
-  // Sort by count descending
-  const sorted = Object.entries(data).sort((a, b) => b[1].count - a[1].count);
-  const maxCount = sorted[0][1].count;
-
-  sorted.forEach(([key, val]) => {
-    const pct = (val.count / maxCount) * 100;
-    const row = document.createElement('div');
-    row.className = 'bar-row';
-    row.innerHTML = `
-      <span class="bar-label" title="${formatReason(key)}">${formatReason(key)}</span>
-      <div class="bar-track">
-        <div class="bar-fill" style="width: 0%"></div>
-      </div>
-      <span class="bar-value">${val.count}</span>
-    `;
-    container.appendChild(row);
-
-    // Animate bar fill
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        row.querySelector('.bar-fill').style.width = pct + '%';
-      }, 50);
-    });
-  });
-}
-
-// ── Payments Table ───────────────────────────────────────────────────────────
-
 async function loadPayments() {
   try {
-    const status  = $('#filter-status').value;
-    const method  = $('#filter-method').value;
-    const segment = $('#filter-segment').value;
+    const status  = $('#pay-status').value;
+    const method  = $('#pay-method').value;
+    const segment = $('#pay-segment').value;
 
     let url = '/api/payments?';
     if (status) url += `status=${status}&`;
@@ -186,312 +234,232 @@ async function loadPayments() {
     if (segment) url += `segment=${segment}&`;
 
     const data = await api(url);
-    paymentsData = data.payments;
-    $('#payments-count').textContent = `${data.total} payments`;
+    const tbody = $('#payments-tbody');
+    tbody.innerHTML = '';
 
-    renderPaymentsTable(data.payments);
-  } catch (e) {
-    showToast('Failed to load payments', 'error');
-    console.error(e);
-  }
-}
-
-function renderPaymentsTable(payments) {
-  const tbody = $('#payments-tbody');
-  tbody.innerHTML = '';
-
-  if (payments.length === 0) {
-    tbody.innerHTML = `
-      <tr><td colspan="8">
-        <div class="empty-state">
-          <div class="empty-state-icon">📭</div>
-          <div class="empty-state-text">No payments match the current filters</div>
-        </div>
-      </td></tr>`;
-    return;
-  }
-
-  payments.forEach(p => {
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td><span class="payment-id">${p.payment_id}</span></td>
-      <td><span class="amount">${formatINR(p.amount)}</span></td>
-      <td><span class="method-badge">${p.payment_method}</span></td>
-      <td>${formatReason(p.failure_reason)}</td>
-      <td>${p.retry_count}</td>
-      <td><span class="segment-badge segment-${p.customer_segment}">${p.customer_segment}</span></td>
-      <td><span class="status-badge status-${p.recovery_status}">${p.recovery_status}</span></td>
-      <td>
-        <button class="btn btn-process btn-sm" onclick="processPayment('${p.payment_id}')"
-                ${p.recovery_status === 'recovered' ? 'disabled' : ''}>
-          ⚡ Analyze
-        </button>
-      </td>
-    `;
-    tbody.appendChild(tr);
-  });
-}
-
-function initFilters() {
-  ['filter-status', 'filter-method', 'filter-segment'].forEach(id => {
-    document.getElementById(id).addEventListener('change', loadPayments);
-  });
-}
-
-// ── AI Processing ────────────────────────────────────────────────────────────
-
-async function processPayment(paymentId) {
-  showToast('Running AI analysis...', 'info');
-
-  try {
-    const result = await api(`/api/payments/${paymentId}/process`, { method: 'POST' });
-
-    if (result.error) {
-      showToast(result.error, 'error');
+    if (data.payments.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="7" class="empty-state">No payments match filters</td></tr>`;
       return;
     }
 
-    if (result.stopped) {
-      showToast(`⛔ ${result.stop_reason}`, 'warning');
-      return;
-    }
-
-    showDecisionModal(paymentId, result);
-    showToast('AI analysis complete', 'success');
-
-    // Refresh data in background
-    loadDashboard();
-    if (currentTab === 'payments') loadPayments();
-  } catch (e) {
-    showToast('Failed to process payment', 'error');
-    console.error(e);
-  }
-}
-
-// ── Decision Modal ───────────────────────────────────────────────────────────
-
-function showDecisionModal(paymentId, result) {
-  pendingAuditId = result.audit_id;
-  const c = result.classification;
-  const r = result.recommendation;
-
-  const body = $('#modal-body');
-  body.innerHTML = `
-    <div class="modal-section">
-      <div class="modal-section-title">Payment Details</div>
-      <div class="info-grid">
-        <div class="info-item">
-          <div class="info-label">Payment ID</div>
-          <div class="info-value payment-id">${paymentId}</div>
-        </div>
-        <div class="info-item">
-          <div class="info-label">Audit ID</div>
-          <div class="info-value" style="font-size:0.78rem; opacity:0.7">${result.audit_id}</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal-section">
-      <div class="modal-section-title">AI Classification</div>
-      <div class="info-grid">
-        <div class="info-item">
-          <div class="info-label">Category</div>
-          <div class="info-value">${formatReason(c.category)}</div>
-        </div>
-        <div class="info-item">
-          <div class="info-label">Confidence</div>
-          <div class="info-value">${(c.confidence * 100).toFixed(0)}%</div>
-          <div class="confidence-bar">
-            <div class="confidence-fill" style="width: ${c.confidence * 100}%"></div>
-          </div>
-        </div>
-      </div>
-      <div class="reasoning-box" style="margin-top: 12px">
-        ${c.reasoning}
-      </div>
-    </div>
-
-    <div class="modal-section">
-      <div class="modal-section-title">Recommended Action</div>
-      <div style="margin-bottom: 12px">
-        <span class="action-badge action-${r.action}">
-          ${ACTION_ICONS[r.action] || '⚡'} ${ACTION_LABELS[r.action] || r.action}
-        </span>
-        <span class="status-badge status-${r.priority === 'critical' ? 'failed' : r.priority === 'high' ? 'escalated' : 'pending'}" style="margin-left: 8px">
-          ${r.priority} priority
-        </span>
-      </div>
-      <div class="reasoning-box">
-        ${r.reasoning}
-      </div>
-    </div>
-
-    <div class="modal-section">
-      <div class="modal-section-title">Approval Status</div>
-      <span class="status-badge status-${result.approval_status === 'awaiting_approval' ? 'pending' : 'recovered'}">
-        ${result.approval_status.replace(/_/g, ' ')}
-      </span>
-      ${result.approval_status === 'awaiting_approval' ? '<span style="font-size: 0.82rem; color: var(--amber); margin-left: 10px">⚠️ Human approval required</span>' : ''}
-    </div>
-
-    ${result.approval_status === 'awaiting_approval' ? `
-    <div class="modal-actions">
-      <button class="btn btn-approve" id="btn-modal-approve" onclick="approveFromModal('${paymentId}', '${result.audit_id}')">
-        ✓ Approve Action
-      </button>
-      <button class="btn btn-reject" id="btn-modal-reject" onclick="rejectFromModal('${paymentId}', '${result.audit_id}')">
-        ✕ Reject
-      </button>
-    </div>
-    ` : `
-    <div class="modal-actions">
-      <span style="font-size:0.85rem; color: var(--green)">✅ Action auto-approved and executed (simulated)</span>
-    </div>
-    `}
-  `;
-
-  $('#modal-overlay').classList.add('active');
-}
-
-function closeModal() {
-  $('#modal-overlay').classList.remove('active');
-  pendingAuditId = null;
-}
-
-async function approveFromModal(paymentId, auditId) {
-  const btn = $('#btn-modal-approve');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Approving...';
-
-  try {
-    const result = await api(`/api/payments/${paymentId}/approve`, {
-      method: 'POST',
-      body: JSON.stringify({ audit_id: auditId, approved_by: 'human_operator' }),
+    data.payments.forEach(p => {
+      let bCls = 'badge-neutral';
+      if (p.recovery_status === 'recovered') bCls = 'badge-emerald';
+      if (p.recovery_status === 'failed' || p.recovery_status === 'escalated') bCls = 'badge-coral';
+      if (p.recovery_status === 'pending') bCls = 'badge-amber';
+      
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="font-family:monospace;font-size:12px">${p.payment_id}</td>
+        <td class="tabular-nums">${formatINR(p.amount)}</td>
+        <td>${formatReason(p.failure_reason)}</td>
+        <td>${p.retry_count}</td>
+        <td><span class="badge badge-neutral">${p.customer_segment}</span></td>
+        <td><span class="badge ${bCls}">${p.recovery_status}</span></td>
+        <td>
+          <button class="btn btn-secondary" onclick="openReview('${p.payment_id}')" ${p.recovery_status === 'recovered' ? 'disabled' : ''}>Analyze</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
     });
-
-    if (result.error) {
-      showToast(result.error, 'error');
-      btn.disabled = false;
-      btn.innerHTML = '✓ Approve Action';
-      return;
-    }
-
-    showToast('✅ Action approved and executed (simulated)', 'success');
-    closeModal();
-    loadDashboard();
-    if (currentTab === 'payments') loadPayments();
-  } catch (e) {
-    showToast('Failed to approve action', 'error');
-    btn.disabled = false;
-    btn.innerHTML = '✓ Approve Action';
-    console.error(e);
-  }
+  } catch(e) {}
 }
-
-async function rejectFromModal(paymentId, auditId) {
-  const btn = $('#btn-modal-reject');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Rejecting...';
-
-  try {
-    const result = await api(`/api/payments/${paymentId}/reject`, {
-      method: 'POST',
-      body: JSON.stringify({ audit_id: auditId, rejected_by: 'human_operator', reason: 'Manual review required' }),
-    });
-
-    if (result.error) {
-      showToast(result.error, 'error');
-      btn.disabled = false;
-      btn.innerHTML = '✕ Reject';
-      return;
-    }
-
-    showToast('❌ Action rejected', 'warning');
-    closeModal();
-    loadDashboard();
-    if (currentTab === 'payments') loadPayments();
-  } catch (e) {
-    showToast('Failed to reject action', 'error');
-    btn.disabled = false;
-    btn.innerHTML = '✕ Reject';
-    console.error(e);
-  }
-}
-
-// ── Audit Log ────────────────────────────────────────────────────────────────
 
 async function loadAuditLog() {
   try {
     const data = await api('/api/audit-log');
-    $('#audit-count').textContent = `${data.total} entries`;
-    renderAuditFeed(data.entries);
-  } catch (e) {
-    showToast('Failed to load audit log', 'error');
-    console.error(e);
+    const tbody = $('#audit-tbody');
+    tbody.innerHTML = '';
+    
+    if (!data.entries || data.entries.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="6" class="empty-state">No audit entries yet</td></tr>`;
+      return;
+    }
+    
+    data.entries.forEach(e => {
+      let bCls = e.approval_status === 'awaiting_approval' ? 'badge-amber' : 'badge-emerald';
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="tabular-nums text-secondary">${formatDate(e.timestamp)}</td>
+        <td style="font-family:monospace;font-size:12px">${e.payment_id}</td>
+        <td style="font-family:monospace;font-size:12px;opacity:0.6">${e.audit_id.substring(0,8)}...</td>
+        <td>${ACTION_LABELS[e.recommended_action] || e.recommended_action}</td>
+        <td><span class="badge ${bCls}">${e.approval_status.replace(/_/g, ' ')}</span></td>
+        <td>${e.execution_result || '—'}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  } catch(e) {}
+}
+
+async function loadEvaluation() {
+  try {
+    const data = await api('/api/evaluation');
+    const tbody = $('#eval-tbody');
+    tbody.innerHTML = '';
+    
+    if (data.error) {
+      tbody.innerHTML = `<tr><td colspan="4" class="empty-state text-coral">Run \`python scripts/run_batch.py\` to generate report</td></tr>`;
+      return;
+    }
+    
+    const m = data.metrics;
+    const rows = [
+      { label: 'Recovery Rate', base: m.baseline_recovery_rate + '%', ai: m.ai_recovery_rate + '%', delta: (m.ai_recovery_rate - m.baseline_recovery_rate).toFixed(1) + '%' },
+      { label: 'Revenue Recovered', base: formatINR(m.baseline_recovered_amount), ai: formatINR(m.ai_recovered_amount), delta: formatINR(m.ai_recovered_amount - m.baseline_recovered_amount) },
+      { label: 'Recovered Cases', base: m.baseline_recovered_cases, ai: m.ai_recovered_cases, delta: m.ai_recovered_cases - m.baseline_recovered_cases },
+      { label: 'Pending Cases', base: m.baseline_pending_cases, ai: m.ai_pending_cases, delta: m.ai_pending_cases - m.baseline_pending_cases },
+    ];
+    
+    rows.forEach(r => {
+      const isPos = String(r.delta).startsWith('+') || (!String(r.delta).startsWith('-') && r.delta !== '0' && r.delta !== '₹0');
+      const dCls = isPos ? 'text-emerald' : 'text-secondary';
+      const dPrefix = isPos && typeof r.delta === 'number' ? '+' : '';
+      
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td style="font-weight:500">${r.label}</td>
+        <td class="tabular-nums">${r.base}</td>
+        <td class="tabular-nums">${r.ai}</td>
+        <td class="tabular-nums ${dCls}">${dPrefix}${r.delta}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  } catch(e) {
+    $('#eval-tbody').innerHTML = `<tr><td colspan="4" class="empty-state text-coral">Failed to load evaluation data</td></tr>`;
   }
 }
 
-function renderAuditFeed(entries) {
-  const feed = $('#audit-feed');
-  feed.innerHTML = '';
+// ── Review Drawer ────────────────────────────────────────────────────────────
 
-  if (entries.length === 0) {
-    feed.innerHTML = `
-      <div class="empty-state">
-        <div class="empty-state-icon">📋</div>
-        <div class="empty-state-text">No audit entries yet. Process a payment to generate decisions.</div>
-      </div>`;
-    return;
-  }
-
-  entries.forEach(e => {
-    const div = document.createElement('div');
-    div.className = 'audit-entry';
-    div.innerHTML = `
-      <div class="audit-entry-header">
-        <span class="audit-entry-id">${e.audit_id} · ${e.payment_id}</span>
-        <span class="audit-entry-time">${formatDate(e.timestamp)}</span>
+async function openReview(paymentId) {
+  $('#drawer-overlay').classList.add('active');
+  $('#drawer-body').innerHTML = '<div class="spinner" style="margin:auto"></div>';
+  $('#drawer-footer').innerHTML = '';
+  
+  try {
+    // Process payment to get AI classification (simulates the agent)
+    const result = await api(`/api/payments/${paymentId}/process`, { method: 'POST' });
+    
+    if (result.error) {
+      $('#drawer-body').innerHTML = `<div class="text-coral">${result.error}</div>`;
+      return;
+    }
+    
+    if (result.stopped) {
+      $('#drawer-body').innerHTML = `
+        <div class="badge badge-coral mb-4">Safety Block</div>
+        <div class="reasoning-box">${result.stop_reason}</div>
+      `;
+      return;
+    }
+    
+    pendingAuditId = result.audit_id;
+    const c = result.classification;
+    const r = result.recommendation;
+    
+    $('#drawer-body').innerHTML = `
+      <div>
+        <div class="detail-row">
+          <span class="detail-label">Payment ID</span>
+          <span class="detail-value" style="font-family:monospace">${paymentId}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Category</span>
+          <span class="detail-value">${formatReason(c.category)}</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Confidence</span>
+          <span class="detail-value text-cyan">${(c.confidence * 100).toFixed(0)}%</span>
+        </div>
       </div>
-      <div class="audit-entry-body">
-        <div class="audit-field">
-          <span class="audit-field-label">Action</span>
-          <span class="audit-field-value">
-            ${ACTION_ICONS[e.recommended_action] || '⚡'} ${ACTION_LABELS[e.recommended_action] || e.recommended_action}
-          </span>
-        </div>
-        <div class="audit-field">
-          <span class="audit-field-label">Approval</span>
-          <span class="audit-field-value approval-${e.approval_status}">
-            ${e.approval_status.replace(/_/g, ' ')}
-          </span>
-        </div>
-        <div class="audit-field">
-          <span class="audit-field-label">Result</span>
-          <span class="audit-field-value">${e.execution_result || '—'}</span>
-        </div>
-        <div class="audit-reasoning">
-          <strong>AI Reasoning:</strong> ${e.action_reasoning}
-          ${e.notes ? `<br><strong>Notes:</strong> ${e.notes}` : ''}
-        </div>
+      
+      <div>
+        <div class="detail-label mb-4" style="text-transform:uppercase;font-size:11px;letter-spacing:0.05em">AI Reasoning</div>
+        <div class="reasoning-box">${c.reasoning}</div>
+      </div>
+      
+      <div>
+        <div class="detail-label mb-4" style="text-transform:uppercase;font-size:11px;letter-spacing:0.05em">Recommended Action</div>
+        <div class="badge badge-cyan mb-4">${ACTION_LABELS[r.action] || r.action}</div>
+        <div class="reasoning-box">${r.reasoning}</div>
+      </div>
+      
+      <div>
+        <div class="detail-label mb-4" style="text-transform:uppercase;font-size:11px;letter-spacing:0.05em">Approval Status</div>
+        <div class="badge ${result.approval_status === 'awaiting_approval' ? 'badge-amber' : 'badge-emerald'}">${result.approval_status.replace(/_/g, ' ')}</div>
       </div>
     `;
-    feed.appendChild(div);
-  });
+    
+    if (result.approval_status === 'awaiting_approval') {
+      $('#drawer-footer').innerHTML = `
+        <button class="btn btn-primary" style="flex:1" onclick="approveAction('${paymentId}', '${result.audit_id}')">Approve</button>
+        <button class="btn btn-danger" onclick="rejectAction('${paymentId}', '${result.audit_id}')">Reject</button>
+      `;
+    } else {
+      $('#drawer-footer').innerHTML = `
+        <div style="font-size:13px; color:var(--status-emerald); text-align:center; width:100%">✅ Action auto-approved (simulated)</div>
+      `;
+    }
+    
+  } catch(e) {
+    $('#drawer-body').innerHTML = `<div class="text-coral">Failed to load case details.</div>`;
+  }
+}
+
+function closeDrawer() {
+  $('#drawer-overlay').classList.remove('active');
+  pendingAuditId = null;
+}
+
+async function approveAction(paymentId, auditId) {
+  try {
+    $('#drawer-footer').innerHTML = '<div class="spinner"></div>';
+    await api(`/api/payments/${paymentId}/approve`, {
+      method: 'POST',
+      body: JSON.stringify({ audit_id: auditId, approved_by: 'human_operator' })
+    });
+    closeDrawer();
+    loadDashboard();
+    if (currentTab === 'queue') loadQueue();
+    if (currentTab === 'payments') loadPayments();
+  } catch(e) {}
+}
+
+async function rejectAction(paymentId, auditId) {
+  try {
+    $('#drawer-footer').innerHTML = '<div class="spinner"></div>';
+    await api(`/api/payments/${paymentId}/reject`, {
+      method: 'POST',
+      body: JSON.stringify({ audit_id: auditId, rejected_by: 'human_operator', reason: 'Manual override' })
+    });
+    closeDrawer();
+    loadDashboard();
+    if (currentTab === 'queue') loadQueue();
+    if (currentTab === 'payments') loadPayments();
+  } catch(e) {}
 }
 
 // ── Initialise ───────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
   initTabs();
-  initFilters();
   loadDashboard();
-
-  // Modal close handlers
-  $('#modal-close').addEventListener('click', closeModal);
-  $('#modal-overlay').addEventListener('click', (e) => {
-    if (e.target === $('#modal-overlay')) closeModal();
+  
+  // Drawer close events
+  $('#drawer-close').addEventListener('click', closeDrawer);
+  $('#drawer-overlay').addEventListener('click', (e) => {
+    if (e.target === $('#drawer-overlay')) closeDrawer();
   });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
+  
+  // Filters
+  ['queue-filter'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.addEventListener('change', loadQueue);
+  });
+  
+  ['pay-status', 'pay-method', 'pay-segment'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.addEventListener('change', loadPayments);
   });
 });

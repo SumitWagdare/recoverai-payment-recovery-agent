@@ -107,6 +107,16 @@ def get_audit_log():
     entries.sort(key=lambda e: e.get("timestamp", ""), reverse=True)
     return jsonify({"entries": entries, "total": len(entries)})
 
+@app.route("/api/evaluation")
+def get_evaluation():
+    report_path = Path(__file__).resolve().parent.parent / "evaluation" / "batch_report.json"
+    if not report_path.exists():
+        return jsonify({"error": "Evaluation report not found"}), 404
+    import json
+    with open(report_path, "r") as f:
+        data = json.load(f)
+    return jsonify(data)
+
 
 # ── Entry point ───────────────────────────────────────────────────────────────
 

@@ -10,15 +10,15 @@ RecoverAI includes a batch processing script (`scripts/run_batch.py`) to systema
 
 | Metric | Baseline | AI-Assisted | Delta |
 |--------|----------|-------------|-------|
-| **Recovery Rate** | 28.3% | 35.8% | **+7.5%** |
-| **Revenue Recovered** | ₹289,262 | ₹296,421 | **+₹7,159** |
-| **Recovered Cases** | 34 | 43 | +9 |
-| **Pending Cases** | 49 | 43 | -6 |
+| **Recovery Rate** | 28.3% | 38.3% | **+10.0%** |
+| **Revenue Recovered** | ₹289,262 | ₹305,530 | **+₹16,267** |
+| **Recovered Cases** | 34 | 46 | +12 |
+| **Pending Cases** | 49 | 40 | -9 |
 | **Failed Cases** | 25 | 22 | -3 |
 | **Escalated Cases**| 12 | 12 | 0 |
 
 > [!TIP]
-> The AI agent successfully recovered an additional **₹7,159** through automated, safe retries without requiring human intervention.
+> The AI agent successfully recovered an additional **₹16,267** through automated, safe retries without requiring human intervention.
 
 ### Agent Action Distribution
 
